@@ -47,4 +47,84 @@ public class Subscription {
 
 	@JsonProperty("subitems")
 	public List<SubItem> subItems;
+
+	public String getPlanIdentifier() {
+		return planIdentifier;
+	}
+
+	public void setPlanIdentifier(String planIdentifier) {
+		this.planIdentifier = planIdentifier;
+	}
+
+	public Date getExpiresAt() {
+		return expiresAt;
+	}
+
+	public void setExpiresAt(Date expiresAt) {
+		this.expiresAt = expiresAt;
+	}
+
+	public String getOnlyOnChargeSucess() {
+		return onlyOnChargeSucess;
+	}
+
+	public void setOnlyOnChargeSucess(String onlyOnChargeSucess) {
+		this.onlyOnChargeSucess = onlyOnChargeSucess;
+	}
+
+	public PayableWith getPayableWith() {
+		return payableWith;
+	}
+
+	public void setPayableWith(PayableWith payableWith) {
+		this.payableWith = payableWith;
+	}
+
+	public boolean isCreditsBased() {
+		return creditsBased;
+	}
+
+	public void setCreditsBased(boolean creditsBased) {
+		this.creditsBased = creditsBased;
+	}
+
+	public int getPriceCents() {
+		return priceCents;
+	}
+
+	public void setPriceCents(int priceCents) {
+		this.priceCents = priceCents;
+	}
+
+	public int getCreditsCycle() {
+		return creditsCycle;
+	}
+
+	public void setCreditsCycle(int creditsCycle) {
+		this.creditsCycle = creditsCycle;
+	}
+
+	public int getCreditsMin() {
+		return creditsMin;
+	}
+
+	public void setCreditsMin(int creditsMin) {
+		this.creditsMin = creditsMin;
+	}
+
+	public List<CustomVariable> getCustomVariables() {
+		return customVariables;
+	}
+
+	public void setCustomVariables(List<CustomVariable> customVariables) {
+		this.customVariables = customVariables;
+	}
+
+	public List<SubItem> getSubItems() {
+		return subItems;
+	}
+
+	public void setSubItems(List<SubItem> subItems) {
+		this.subItems = subItems;
+	}
 }
