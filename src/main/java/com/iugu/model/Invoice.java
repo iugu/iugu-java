@@ -81,6 +81,9 @@ public class Invoice implements Serializable
    @JsonProperty("discount_cents")
    private Integer discountCents;
    
+   @JsonProperty("payable_with")
+   private PayableWith payableWith;
+   
    public Invoice(String email, Date dueDate, Item... items) {
 	   this.email = email;
 	   this.dueDate = dueDate;
@@ -166,6 +169,14 @@ public class Invoice implements Serializable
 	
 	public void setDiscountCents(Integer discountCents) {
 		this.discountCents = discountCents;
+	}
+
+	public PayableWith getPayableWith() {
+		return payableWith;
+	}
+
+	public void setPayableWith(PayableWith payableWith) {
+		this.payableWith = payableWith;
 	}
    
 }
