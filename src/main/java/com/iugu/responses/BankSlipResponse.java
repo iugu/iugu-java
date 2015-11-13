@@ -1,7 +1,9 @@
 package com.iugu.responses;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BankSlipResponse {
 
 	@JsonProperty("digitable_line")

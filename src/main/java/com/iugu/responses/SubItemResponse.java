@@ -1,16 +1,10 @@
 package com.iugu.responses;
 
-import java.util.Date;
-
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-
-import com.iugu.serializers.DateSerializer;
-import com.iugu.serializers.JsonFormat;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ItemResponse {
+public class SubItemResponse {
 
 	private String id;
 	
@@ -21,15 +15,9 @@ public class ItemResponse {
 	@JsonProperty("price_cents")
 	private Integer priceCents;
 	
-	@JsonProperty("created_at")
-	@JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ") @JsonSerialize(using = DateSerializer.class)
-	private Date createdAt;
-	
-	@JsonProperty("updated_at")
-	@JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ") @JsonSerialize(using = DateSerializer.class)
-	private Date updatedAt;
-	
 	private String price;
+	
+	private String total;
 
 	public String getId() {
 		return id;
@@ -63,22 +51,6 @@ public class ItemResponse {
 		this.priceCents = priceCents;
 	}
 
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-
 	public String getPrice() {
 		return price;
 	}
@@ -86,6 +58,13 @@ public class ItemResponse {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	
+
+	public String getTotal() {
+		return total;
+	}
+
+	public void setTotal(String total) {
+		this.total = total;
+	}
 	
 }

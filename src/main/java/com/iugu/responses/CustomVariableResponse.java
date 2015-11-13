@@ -3,11 +3,11 @@ package com.iugu.responses;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class VariableResponse {
+public class CustomVariableResponse {
 
 	private String id;
 	
-	private String variable;
+	private String name;
 	
 	private String value;
 
@@ -19,12 +19,12 @@ public class VariableResponse {
 		this.id = id;
 	}
 
-	public String getVariable() {
-		return variable;
+	public String getName() {
+		return name;
 	}
 
-	public void setVariable(String variable) {
-		this.variable = variable;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getValue() {
