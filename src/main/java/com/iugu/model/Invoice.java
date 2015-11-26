@@ -45,6 +45,12 @@ public class Invoice implements Serializable
     */
    @JsonProperty("expired_url")
    private String expiredUrl;
+   
+   /**
+    * ID do cliente
+    */
+   @JsonProperty("customer_id")
+   private String customerId;
 
    /**
     * URL chamada para todas as notificações de Fatura, assim como os webhooks (Gatilhos) são chamados
@@ -117,6 +123,15 @@ public class Invoice implements Serializable
 	
 	public Invoice withExpiredUrl(String expiredUrl) {
 		this.expiredUrl = expiredUrl;
+		return this;
+	}
+	
+	public String getCustomerId() {
+		return customerId;
+	}
+	
+	public Invoice withCustomerId(String customerId) {
+		this.customerId = customerId;
 		return this;
 	}
 	

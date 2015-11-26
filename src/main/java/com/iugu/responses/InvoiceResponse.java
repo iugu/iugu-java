@@ -60,7 +60,7 @@ public class InvoiceResponse implements Serializable {
 	private String secureUrl;
 	
 	@JsonProperty("customer_id")
-	private Long customerId;
+	private String customerId;
 	
 	@JsonProperty("user_id")
 	private Long userId;
@@ -205,11 +205,11 @@ public class InvoiceResponse implements Serializable {
 		this.secureUrl = secureUrl;
 	}
 
-	public Long getCustomerId() {
+	public String getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerId(Long customerId) {
+	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
 	}
 
