@@ -29,6 +29,7 @@ public class InvoiceService {
 			return response.readEntity(InvoiceResponse.class);
 		}
 
+		response.close();
 		return null; // FIXME Tratar retornos de erro
 	}
 
@@ -39,6 +40,7 @@ public class InvoiceService {
 			return response.readEntity(InvoiceResponse.class);
 		}
 
+		response.close();
 		return null; // FIXME Tratar retornos de erro
 	}
 
@@ -46,7 +48,7 @@ public class InvoiceService {
 	public InvoiceResponse duplicate(String id, Date date) {
 		SimpleDateFormat sm = new SimpleDateFormat("dd/MM/yyyy");
 		Form form = new Form();
-		
+
 		form.param("due_date", sm.format(date));
 
 		Response response = Iugu.getClient().target(String.format(DUPLICATE_URL, id)).request()
@@ -56,6 +58,7 @@ public class InvoiceService {
 			return response.readEntity(InvoiceResponse.class);
 		}
 
+		response.close();
 		return null; // FIXME Tratar retornos de erro
 	}
 
@@ -68,6 +71,7 @@ public class InvoiceService {
 			return response.readEntity(InvoiceResponse.class);
 		}
 
+		response.close();
 		return null; // FIXME Tratar retornos de erro
 	}
 
@@ -78,6 +82,7 @@ public class InvoiceService {
 			return response.readEntity(InvoiceResponse.class);
 		}
 
+		response.close();
 		return null; // FIXME Tratar retornos de erro
 	}
 
@@ -87,6 +92,7 @@ public class InvoiceService {
 		if (response.getStatus() == 200) {
 			return response.readEntity(InvoiceResponse.class);
 		}
+		response.close();
 
 		return null; // FIXME Tratar retornos de erro
 	}
