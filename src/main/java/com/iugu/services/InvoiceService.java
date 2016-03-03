@@ -77,13 +77,11 @@ public class InvoiceService {
 
 	public InvoiceResponse cancel(String id) {
 		Response response = Iugu.getClient().target(String.format(CANCEL_URL, id)).request().put(null);
-
-		if (response.getStatus() == 200) {
-			return response.readEntity(InvoiceResponse.class);
-		}
-
+		
+		InvoiceResponse invoiceResponse = response.readEntity(InvoiceResponse.class);
+		invoiceResponse.setResponse(response);
 		response.close();
-		return null; // FIXME Tratar retornos de erro
+		return invoiceResponse;
 	}
 
 	public InvoiceResponse refund(String id) {
