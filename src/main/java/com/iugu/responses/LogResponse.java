@@ -1,15 +1,25 @@
 package com.iugu.responses;
 
+import java.util.Date;
+
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.codehaus.jackson.annotate.JsonProperty;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+
+import com.iugu.serializers.DateSerializer;
+import com.iugu.serializers.JsonFormat;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LogResponse {
 
 	private String id;
-	
+
 	private String description;
-	
+
 	private String notes;
+
+	@JsonProperty("created_at")
+	private String createdAt;
 
 	public String getId() {
 		return id;
@@ -34,5 +44,13 @@ public class LogResponse {
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
-	
+
+	public String getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(String createdAt) {
+		this.createdAt = createdAt;
+	}
+
 }

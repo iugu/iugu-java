@@ -89,6 +89,8 @@ public class InvoiceResponse implements Serializable {
 
 	private List<VariableResponse> variables;
 
+	private List<LogResponse> logs;
+
 	Response response;
 
 	public String getId() {
@@ -305,6 +307,14 @@ public class InvoiceResponse implements Serializable {
 
 	public void setResponse(Response response) {
 		this.response = response;
+	}
+
+	public List<LogResponse> getLogs() {
+		return logs;
+	}
+
+	public void setLogs(List<LogResponse> logs) {
+		this.logs = logs;
 	}
 
 }
