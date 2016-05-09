@@ -69,7 +69,14 @@ public class InvoiceResponse implements Serializable {
 	@JsonProperty("user_id")
 	private Long userId;
 
+	@JsonProperty("total")
 	private String total;
+
+	@JsonProperty("total_paid")
+	private String totalPaid;
+
+	@JsonProperty("total_on_occurrence_day")
+	private String totalOnOccurrenceDay;
 
 	@JsonProperty("taxes_paid")
 	private String taxesPaid;
@@ -229,14 +236,6 @@ public class InvoiceResponse implements Serializable {
 		this.userId = userId;
 	}
 
-	public String getTotal() {
-		return total;
-	}
-
-	public void setTotal(String total) {
-		this.total = total;
-	}
-
 	public String getTaxesPaid() {
 		return taxesPaid;
 	}
@@ -315,6 +314,30 @@ public class InvoiceResponse implements Serializable {
 
 	public void setLogs(List<LogResponse> logs) {
 		this.logs = logs;
+	}
+
+	public String getTotalPaid() {
+		return totalPaid;
+	}
+
+	public void setTotalPaid(String totalPaid) {
+		this.totalPaid = totalPaid;
+	}
+
+	public String getTotalOnOccurrenceDay() {
+		return totalOnOccurrenceDay;
+	}
+
+	public void setTotalOnOccurrenceDay(String totalOnOccurrenceDay) {
+		this.totalOnOccurrenceDay = totalOnOccurrenceDay;
+	}
+
+	public String getTotal() {
+		return total;
+	}
+
+	public void setTotal(String total) {
+		this.total = total;
 	}
 
 }
