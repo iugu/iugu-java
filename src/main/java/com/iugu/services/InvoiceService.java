@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.iugu.Iugu;
+import com.iugu.exceptions.IuguException;
 import com.iugu.model.Invoice;
 import com.iugu.responses.InvoiceResponse;
 
@@ -21,7 +22,7 @@ public class InvoiceService {
 	private final String CANCEL_URL = Iugu.url("/invoices/%s/cancel");
 	private final String REFUND_URL = Iugu.url("/invoices/%s/refund");
 
-	public InvoiceResponse create(Invoice invoice) {
+	public InvoiceResponse create(Invoice invoice) throws IuguException {
 		Response response = Iugu.getClient().target(CREATE_URL).request()
 				.post(Entity.entity(invoice, MediaType.APPLICATION_JSON));
 
@@ -29,8 +30,17 @@ public class InvoiceService {
 			return response.readEntity(InvoiceResponse.class);
 		}
 
+		// Error Happened
+		int ResponseStatus = response.getStatus();
+		String ResponseText = null;
+		
+		if(response.hasEntity()) {
+			ResponseText = response.readEntity(String.class);
+		}
+		
 		response.close();
-		return null; // FIXME Tratar retornos de erro
+		
+		throw new IuguException("Error creating invoice!", ResponseStatus, ResponseText);
 	}
 
 	public InvoiceResponse find(String id) {

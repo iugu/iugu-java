@@ -1,7 +1,6 @@
 package com.iugu.model;
 
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.List;
 
 import org.codehaus.jackson.annotate.JsonProperty;

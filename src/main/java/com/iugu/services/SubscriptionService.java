@@ -6,12 +6,7 @@ import javax.ws.rs.core.Response;
 
 import com.iugu.Iugu;
 import com.iugu.model.Credit;
-import com.iugu.model.Customer;
-import com.iugu.model.Invoice;
-import com.iugu.model.Plan;
 import com.iugu.model.Subscription;
-import com.iugu.responses.CustomerResponse;
-import com.iugu.responses.InvoiceResponse;
 import com.iugu.responses.SubscriptionResponse;
 
 public class SubscriptionService {
