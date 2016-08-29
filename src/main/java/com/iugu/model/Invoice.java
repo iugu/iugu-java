@@ -35,6 +35,11 @@ public class Invoice implements Serializable {
 	private List<Item> items = new ArrayList<>();
 
 	/**
+	 * Payer
+	 */
+	private Payer payer;
+	
+	/**
 	 * Emails de cópia
 	 */
 	@JsonProperty("cc_emails")
@@ -106,6 +111,12 @@ public class Invoice implements Serializable {
 		this.dueDate = dueDate;
 		this.items.addAll(Arrays.asList(items)); // FIXME Tratar null pointer
 	}
+	public Invoice(String email, Date dueDate, Payer Payer, Item... items) {
+		this.email = email;
+		this.dueDate = dueDate;
+		this.payer = Payer;
+		this.items.addAll(Arrays.asList(items)); // FIXME Tratar null pointer
+	}
 
 	public String getEmail() {
 		return email;
@@ -119,6 +130,14 @@ public class Invoice implements Serializable {
 		return items;
 	}
 
+	public Payer getPayer() {
+		return payer;
+	}
+	
+	public void setPayer(Payer Payer) {
+		this.payer = Payer;
+	}
+	
 	public String getReturnUrl() {
 		return returnUrl;
 	}

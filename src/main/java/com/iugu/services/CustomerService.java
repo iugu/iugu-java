@@ -6,9 +6,7 @@ import javax.ws.rs.core.Response;
 
 import com.iugu.Iugu;
 import com.iugu.model.Customer;
-import com.iugu.model.Invoice;
 import com.iugu.responses.CustomerResponse;
-import com.iugu.responses.InvoiceResponse;
 
 public class CustomerService {
 
