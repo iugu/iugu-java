@@ -12,6 +12,7 @@ import com.iugu.Iugu;
 import com.iugu.exceptions.IuguException;
 import com.iugu.model.Invoice;
 import com.iugu.responses.InvoiceResponse;
+import com.iugu.utils.ConvertionUtils;
 
 public class InvoiceService {
 
@@ -54,8 +55,7 @@ public class InvoiceService {
 		return null; // FIXME Tratar retornos de erro
 	}
 
-	// FIXME Tratar ignore_canceled_email e Items
-	public InvoiceResponse duplicate(String id, Date date) {
+	public InvoiceResponse duplicate(String id, Date date) throws IuguException {
 		SimpleDateFormat sm = new SimpleDateFormat("dd/MM/yyyy");
 		Form form = new Form();
 
@@ -67,13 +67,48 @@ public class InvoiceService {
 		if (response.getStatus() == 200) {
 			return response.readEntity(InvoiceResponse.class);
 		}
-
+		
+		// Error Happened
+		int ResponseStatus = response.getStatus();
+		String ResponseText = null;
+		
+		if(response.hasEntity()) {
+			ResponseText = response.readEntity(String.class);
+		}
+		
 		response.close();
-		return null; // FIXME Tratar retornos de erro
+		
+		throw new IuguException("Error duplicating invoice!", ResponseStatus, ResponseText);
+	}
+	public InvoiceResponse duplicate(String id, Date date, boolean ignoreCanceledEmail, boolean currentFinesOption) throws IuguException {
+		SimpleDateFormat sm = new SimpleDateFormat("dd/MM/yyyy");
+		Form form = new Form();
+
+		form.param("due_date", sm.format(date));
+		form.param("ignore_canceled_email", ConvertionUtils.booleanToString(ignoreCanceledEmail));
+		form.param("current_fines_option", ConvertionUtils.booleanToString(currentFinesOption));
+
+		Response response = Iugu.getClient().target(String.format(DUPLICATE_URL, id)).request()
+				.post(Entity.entity(form, MediaType.APPLICATION_FORM_URLENCODED_TYPE));
+
+		if (response.getStatus() == 200) {
+			return response.readEntity(InvoiceResponse.class);
+		}
+		
+		// Error Happened
+		int ResponseStatus = response.getStatus();
+		String ResponseText = null;
+		
+		if(response.hasEntity()) {
+			ResponseText = response.readEntity(String.class);
+		}
+		
+		response.close();
+		
+		throw new IuguException("Error duplicating invoice!", ResponseStatus, ResponseText);
 	}
 
 	// TODO Capturar fatura
-
 	public InvoiceResponse remove(String id) {
 		Response response = Iugu.getClient().target(String.format(REMOVE_URL, id)).request().delete();
 
