@@ -44,15 +44,24 @@ public class InvoiceService {
 		throw new IuguException("Error creating invoice!", ResponseStatus, ResponseText);
 	}
 
-	public InvoiceResponse find(String id) {
+	public InvoiceResponse find(String id) throws IuguException {
 		Response response = Iugu.getClient().target(String.format(FIND_URL, id)).request().get();
 
 		if (response.getStatus() == 200) {
 			return response.readEntity(InvoiceResponse.class);
 		}
 
+		// Error Happened
+		int ResponseStatus = response.getStatus();
+		String ResponseText = null;
+		
+		if(response.hasEntity()) {
+			ResponseText = response.readEntity(String.class);
+		}
+		
 		response.close();
-		return null; // FIXME Tratar retornos de erro
+		
+		throw new IuguException("Error finding invoice with id: " + id, ResponseStatus, ResponseText);
 	}
 
 	public InvoiceResponse duplicate(String id, Date date) throws IuguException {
@@ -78,7 +87,7 @@ public class InvoiceService {
 		
 		response.close();
 		
-		throw new IuguException("Error duplicating invoice!", ResponseStatus, ResponseText);
+		throw new IuguException("Error duplicating invoice with id: " + id, ResponseStatus, ResponseText);
 	}
 	public InvoiceResponse duplicate(String id, Date date, boolean ignoreCanceledEmail, boolean currentFinesOption) throws IuguException {
 		SimpleDateFormat sm = new SimpleDateFormat("dd/MM/yyyy");
@@ -105,19 +114,27 @@ public class InvoiceService {
 		
 		response.close();
 		
-		throw new IuguException("Error duplicating invoice!", ResponseStatus, ResponseText);
+		throw new IuguException("Error duplicating invoice with id: " + id, ResponseStatus, ResponseText);
 	}
 
-	// TODO Capturar fatura
-	public InvoiceResponse remove(String id) {
+	public InvoiceResponse remove(String id) throws IuguException {
 		Response response = Iugu.getClient().target(String.format(REMOVE_URL, id)).request().delete();
 
 		if (response.getStatus() == 200) {
 			return response.readEntity(InvoiceResponse.class);
 		}
 
+		// Error Happened
+		int ResponseStatus = response.getStatus();
+		String ResponseText = null;
+		
+		if(response.hasEntity()) {
+			ResponseText = response.readEntity(String.class);
+		}
+		
 		response.close();
-		return null; // FIXME Tratar retornos de erro
+		
+		throw new IuguException("Error removing invoice with id: " + id, ResponseStatus, ResponseText);
 	}
 
 	public InvoiceResponse cancel(String id) {
@@ -129,15 +146,24 @@ public class InvoiceService {
 		return invoiceResponse;
 	}
 
-	public InvoiceResponse refund(String id) {
+	public InvoiceResponse refund(String id) throws IuguException {
 		Response response = Iugu.getClient().target(String.format(REFUND_URL, id)).request().post(null);
 
 		if (response.getStatus() == 200) {
 			return response.readEntity(InvoiceResponse.class);
 		}
+		
+		// Error Happened
+		int ResponseStatus = response.getStatus();
+		String ResponseText = null;
+		
+		if(response.hasEntity()) {
+			ResponseText = response.readEntity(String.class);
+		}
+		
 		response.close();
-
-		return null; // FIXME Tratar retornos de erro
+		
+		throw new IuguException("Error refunding invoice with id: " + id, ResponseStatus, ResponseText);
 	}
 
 	// TODO Listar as faturas
