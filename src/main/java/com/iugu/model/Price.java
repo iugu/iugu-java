@@ -2,6 +2,8 @@ package com.iugu.model;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
+import com.iugu.enums.Currency;
+
 public class Price {
 
 	private Currency currency;

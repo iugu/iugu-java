@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
+import com.iugu.enums.PayableWith;
+
 public class Subscription {
 
 	public Subscription(String customerId) {

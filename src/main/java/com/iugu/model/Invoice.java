@@ -9,6 +9,7 @@ import java.util.List;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
+import com.iugu.enums.PayableWith;
 import com.iugu.serializers.DateSerializer;
 import com.iugu.serializers.JsonFormat;
 

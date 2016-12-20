@@ -1,4 +1,4 @@
-package com.iugu.model;
+package com.iugu.enums;
 
 import org.codehaus.jackson.annotate.JsonValue;
 
