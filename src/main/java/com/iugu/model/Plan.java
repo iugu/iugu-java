@@ -4,6 +4,10 @@ import java.util.List;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
+import com.iugu.enums.Currency;
+import com.iugu.enums.IntervalType;
+import com.iugu.enums.PayableWith;
+
 public class Plan {
 
 	private String name;

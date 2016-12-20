@@ -1,14 +1,14 @@
-package com.iugu.model;
+package com.iugu.enums;
 
 import org.codehaus.jackson.annotate.JsonValue;
 
-public enum ItemType {
+public enum PayableWith {
 
-	CREDIT_CARD("credit_card");
+	CREDIT_CARD("credit_card"), ALL("all"), BANK_SLIP("bank_slip");
 
 	private String value;
 
-	private ItemType(String value) {
+	private PayableWith(String value) {
 		this.value = value;
 	}
 
