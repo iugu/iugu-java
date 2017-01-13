@@ -6,7 +6,7 @@ import javax.ws.rs.client.ClientBuilder;
 public class IuguConfiguration {
 
 	private final static String URL = "https://api.iugu.com/v1";
-	private static String tokenId;
+	private final String tokenId;
 
 	public IuguConfiguration(String token) {
 		tokenId = token;
