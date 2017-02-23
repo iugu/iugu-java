@@ -8,18 +8,21 @@ import com.iugu.enums.ItemType;
 
 public class PaymentMethod {
 
-	public PaymentMethod(String customerId, String description, List<Data> data) {
-		this.customerId = customerId;
+	public PaymentMethod(String description, String token, Boolean isDefault) {
 		this.description = description;
-		this.data = data;
+		this.token = token;
+		this.isDefault=isDefault;
 	}
 
-	@JsonProperty("customer_id")
-	private String customerId;
+	public PaymentMethod(String description, Data data, Boolean isDefault) {
+		this.description = description;
+		this.data = data;
+		this.isDefault = isDefault;
+	}
 
 	private String description;
 
-	private List<Data> data;
+	private Data data;
 
 	@JsonProperty("item_type")
 	private ItemType itemType;
@@ -27,7 +30,23 @@ public class PaymentMethod {
 	private String token;
 
 	@JsonProperty("set_as_default")
-	private String setAsDefault;
+	private Boolean isDefault;
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Data getData() {
+		return data;
+	}
+
+	public void setData(Data data) {
+		this.data = data;
+	}
 
 	public ItemType getItemType() {
 		return itemType;
@@ -45,24 +64,22 @@ public class PaymentMethod {
 		this.token = token;
 	}
 
-	public String getSetAsDefault() {
-		return setAsDefault;
+	public Boolean getDefault() {
+		return isDefault;
 	}
 
-	public void setSetAsDefault(String setAsDefault) {
-		this.setAsDefault = setAsDefault;
+	public void setDefault(Boolean aDefault) {
+		isDefault = aDefault;
 	}
 
-	public String getCustomerId() {
-		return customerId;
+	@Override
+	public String toString() {
+		return "PaymentMethod{" +
+				"description='" + description + '\'' +
+				", data=" + data +
+				", itemType=" + itemType +
+				", token='" + token + '\'' +
+				", isDefault=" + isDefault +
+				'}';
 	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public List<Data> getData() {
-		return data;
-	}
-
 }

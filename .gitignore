@@ -72,3 +72,6 @@ local.properties
 
 # Code Recommenders
 .recommenders/
+
+.idea/
+iugu-java.iml

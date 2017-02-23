@@ -243,5 +243,31 @@ public class SubscriptionResponse {
 	public void setCustomVariables(List<CustomVariableResponse> customVariables) {
 		this.customVariables = customVariables;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "SubscriptionResponse{" +
+				"id='" + id + '\'' +
+				", suspended=" + suspended +
+				", planIdentifier='" + planIdentifier + '\'' +
+				", priceCents=" + priceCents +
+				", currency='" + currency + '\'' +
+				", expiresAt=" + expiresAt +
+				", customerName='" + customerName + '\'' +
+				", customerEmail='" + customerEmail + '\'' +
+				", cycledAt=" + cycledAt +
+				", creditsMin=" + creditsMin +
+				", customerId='" + customerId + '\'' +
+				", planName='" + planName + '\'' +
+				", customerRef='" + customerRef + '\'' +
+				", planRef='" + planRef + '\'' +
+				", active=" + active +
+				", inTrial=" + inTrial +
+				", credits=" + credits +
+				", creditsBased=" + creditsBased +
+				", subitems=" + subitems +
+				", logs=" + logs +
+				", customVariables=" + customVariables +
+				'}';
+	}
 }
