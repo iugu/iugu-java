@@ -16,6 +16,10 @@ public class IuguConfiguration {
 		return ClientBuilder.newClient().register(new Authenticator(tokenId, ""));
 	}
 
+	public Client getNewClientNotAuth() {
+		return ClientBuilder.newClient();
+	}
+
 	public static String url(String endpoint) {
 		return URL + endpoint;
 	}

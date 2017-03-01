@@ -6,6 +6,9 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 public class PaymentToken {
 
+	@JsonProperty("account_id")
+	private String accountId;
+
 	@JsonProperty("method")
 	private PayableWith payableWith;
 
@@ -14,6 +17,14 @@ public class PaymentToken {
 
 	@JsonProperty("data")
 	private Data data;
+
+	public String getAccountId() {
+		return accountId;
+	}
+
+	public void setAccountId(String accountId) {
+		this.accountId = accountId;
+	}
 
 	public PayableWith getPayableWith() {
 		return payableWith;
@@ -42,7 +53,8 @@ public class PaymentToken {
 	@Override
 	public String toString() {
 		return "PaymentToken{" +
-				"payableWith=" + payableWith +
+				"accountId='" + accountId + '\'' +
+				", payableWith=" + payableWith +
 				", isTest=" + isTest +
 				", data=" + data +
 				'}';
