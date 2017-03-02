@@ -47,4 +47,13 @@ public class LogResponse {
 		this.createdAt = createdAt;
 	}
 
+	@Override
+	public String toString() {
+		return "LogResponse{" +
+				"id='" + id + '\'' +
+				", description='" + description + '\'' +
+				", notes='" + notes + '\'' +
+				", createdAt='" + createdAt + '\'' +
+				'}';
+	}
 }

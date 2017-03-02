@@ -1,5 +1,7 @@
 package com.iugu.model;
 
+import org.codehaus.jackson.annotate.JsonProperty;
+
 public class Data {
 
 	public Data(String number, String verificationValue, String firstName, String lastName, String month, String year) {
@@ -13,10 +15,13 @@ public class Data {
 
 	String number;
 
+	@JsonProperty("verification_value")
 	String verificationValue;
 
+	@JsonProperty("first_name")
 	String firstName;
 
+	@JsonProperty("last_name")
 	String lastName;
 
 	String month;

@@ -39,4 +39,13 @@ public class SubItem {
 		this.recurrent = recurrent;
 	}
 
+	@Override
+	public String toString() {
+		return "SubItem{" +
+				"description='" + description + '\'' +
+				", quantity=" + quantity +
+				", priceCents=" + priceCents +
+				", recurrent=" + recurrent +
+				'}';
+	}
 }
