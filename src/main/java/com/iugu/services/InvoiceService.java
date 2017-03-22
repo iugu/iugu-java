@@ -130,13 +130,23 @@ public class InvoiceService {
 		throw new IuguException("Error removing invoice with id: " + id, ResponseStatus, ResponseText);
 	}
 
-	public InvoiceResponse cancel(String id) {
+	public InvoiceResponse cancel(String id) throws IuguException {
 		Response response = this.iugu.getNewClient().target(String.format(CANCEL_URL, id)).request().put(null);
 
-		InvoiceResponse invoiceResponse = response.readEntity(InvoiceResponse.class);
-		invoiceResponse.setResponse(response);
+		int ResponseStatus = response.getStatus();
+		String ResponseText = null;
+
+		if (ResponseStatus == 200)
+			return response.readEntity(InvoiceResponse.class);
+
+		// Error Happened
+		if (response.hasEntity())
+			ResponseText = response.readEntity(String.class);
+
 		response.close();
-		return invoiceResponse;
+
+		throw new IuguException("Error canceling invoice with id: " + id, ResponseStatus, ResponseText);
+
 	}
 
 	public InvoiceResponse refund(String id) throws IuguException {
