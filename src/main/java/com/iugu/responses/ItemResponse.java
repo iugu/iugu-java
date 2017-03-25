@@ -22,8 +22,7 @@ public class ItemResponse {
 	private Integer priceCents;
 	
 	@JsonProperty("created_at")
-	@JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ") @JsonSerialize(using = DateSerializer.class)
-	private Date createdAt;
+	private String createdAt;
 	
 	@JsonProperty("updated_at")
 	@JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ") @JsonSerialize(using = DateSerializer.class)
@@ -63,11 +62,11 @@ public class ItemResponse {
 		this.priceCents = priceCents;
 	}
 
-	public Date getCreatedAt() {
+	public String getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(String createdAt) {
 		this.createdAt = createdAt;
 	}
 
