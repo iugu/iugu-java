@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import javax.ws.rs.core.Response;
-
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -97,8 +95,6 @@ public class InvoiceResponse implements Serializable {
 	private List<VariableResponse> variables;
 
 	private List<LogResponse> logs;
-
-	Response response;
 
 	public String getId() {
 		return id;
@@ -298,14 +294,6 @@ public class InvoiceResponse implements Serializable {
 
 	public void setVariables(List<VariableResponse> variables) {
 		this.variables = variables;
-	}
-
-	public Response getResponse() {
-		return response;
-	}
-
-	public void setResponse(Response response) {
-		this.response = response;
 	}
 
 	public List<LogResponse> getLogs() {
