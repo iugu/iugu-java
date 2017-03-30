@@ -23,7 +23,7 @@ public class InvoiceService {
 	private final String REMOVE_URL = IuguConfiguration.url("/invoices/%s");
 	private final String CANCEL_URL = IuguConfiguration.url("/invoices/%s/cancel");
 	private final String REFUND_URL = IuguConfiguration.url("/invoices/%s/refund");
-	private final String FIND_CUSTOMER_URL=IuguConfiguration.url("/invoices?customerId=%s");
+	private final String FIND_CUSTOMER_URL=IuguConfiguration.url("/invoices?customer_id=%s");
 
 	public InvoiceService(IuguConfiguration iuguConfiguration) {
 		this.iugu = iuguConfiguration;
