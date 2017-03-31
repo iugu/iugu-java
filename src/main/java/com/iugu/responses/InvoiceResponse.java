@@ -85,7 +85,7 @@ public class InvoiceResponse implements Serializable {
 
 	private Boolean refundable;
 
-	private Boolean installments;
+	private String installments;
 
 	@JsonProperty("bank_slip")
 	private BankSlipResponse bankSlip;
@@ -264,11 +264,11 @@ public class InvoiceResponse implements Serializable {
 		this.refundable = refundable;
 	}
 
-	public Boolean getInstallments() {
+	public String getInstallments() {
 		return installments;
 	}
 
-	public void setInstallments(Boolean installments) {
+	public void setInstallments(String installments) {
 		this.installments = installments;
 	}
 

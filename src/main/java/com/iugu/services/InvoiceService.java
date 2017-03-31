@@ -23,6 +23,7 @@ public class InvoiceService {
 	private final String REMOVE_URL = IuguConfiguration.url("/invoices/%s");
 	private final String CANCEL_URL = IuguConfiguration.url("/invoices/%s/cancel");
 	private final String REFUND_URL = IuguConfiguration.url("/invoices/%s/refund");
+	private final String FIND_CUSTOMER_URL=IuguConfiguration.url("/invoices?customer_id=%s");
 
 	public InvoiceService(IuguConfiguration iuguConfiguration) {
 		this.iugu = iuguConfiguration;
@@ -165,6 +166,24 @@ public class InvoiceService {
 		response.close();
 
 		throw new IuguException("Error refunding invoice with id: " + id, ResponseStatus, ResponseText);
+	}
+
+	public InvoiceResponse findByCustomerId(String id) throws IuguException {
+		Response response = this.iugu.getNewClient().target(String.format(FIND_CUSTOMER_URL, id)).request().get();
+
+		int ResponseStatus = response.getStatus();
+		String ResponseText = null;
+
+		if (ResponseStatus == 200)
+			return response.readEntity(InvoiceResponse.class);
+
+		// Error Happened
+		if (response.hasEntity())
+			ResponseText = response.readEntity(String.class);
+
+		response.close();
+
+		throw new IuguException("Error finding invoice with customerId: " + id, ResponseStatus, ResponseText);
 	}
 
 	// TODO Listar as faturas
