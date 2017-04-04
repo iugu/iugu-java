@@ -1,6 +1,5 @@
 package com.iugu.responses;
 
-import com.iugu.enums.PayableWith;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
@@ -16,28 +15,23 @@ public class PaymentTokenResponse {
 	@JsonProperty("test")
 	private Boolean isTest;
 
+	@JsonProperty("extra_info")
+	private ExtraInfoResponse extraInfo;
+
 	public String getId() {
 		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getMethod() {
 		return method;
 	}
 
-	public void setMethod(String method) {
-		this.method = method;
-	}
-
 	public Boolean getTest() {
 		return isTest;
 	}
 
-	public void setTest(Boolean test) {
-		isTest = test;
+	public ExtraInfoResponse getExtraInfo() {
+		return extraInfo;
 	}
 
 	@Override
@@ -46,6 +40,7 @@ public class PaymentTokenResponse {
 				"id='" + id + '\'' +
 				", method='" + method + '\'' +
 				", isTest=" + isTest +
+				", extraInfo=" + extraInfo +
 				'}';
 	}
 }

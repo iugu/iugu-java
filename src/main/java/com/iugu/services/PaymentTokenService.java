@@ -3,16 +3,12 @@ package com.iugu.services;
 import com.iugu.IuguConfiguration;
 import com.iugu.exceptions.IuguException;
 import com.iugu.model.PaymentToken;
-import com.iugu.model.Plan;
 import com.iugu.responses.PaymentTokenResponse;
 
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-/**
- * Created by giorgi on 23/02/17.
- */
 public class PaymentTokenService {
 
 	private IuguConfiguration iugu;
