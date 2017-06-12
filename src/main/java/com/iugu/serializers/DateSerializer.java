@@ -1,19 +1,15 @@
 package com.iugu.serializers;
 
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
+
 import java.io.IOException;
-import java.lang.reflect.AnnotatedElement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.map.BeanProperty;
-import org.codehaus.jackson.map.ContextualSerializer;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.JsonSerializer;
-import org.codehaus.jackson.map.SerializationConfig;
-import org.codehaus.jackson.map.SerializerProvider;
 
-public class DateSerializer extends JsonSerializer<Date> implements ContextualSerializer<Date> {
+public class DateSerializer extends JsonSerializer<Date> {
 	
 	private final String format;
 
@@ -30,10 +26,8 @@ public class DateSerializer extends JsonSerializer<Date> implements ContextualSe
 		jgen.writeString(new SimpleDateFormat(format).format(value));
 	}
 
-	@Override
-	public JsonSerializer<Date> createContextual(final SerializationConfig serializationConfig, final BeanProperty beanProperty) throws JsonMappingException {
+	/*public JsonSerializer<Date> createContextual(final SerializationConfig serializationConfig, final BeanProperty beanProperty) throws JsonMappingException {
 		final AnnotatedElement annotated = beanProperty.getMember().getAnnotated();
 		return new DateSerializer(annotated.getAnnotation(JsonFormat.class).value());
-	}
-	
+	}*/
 }

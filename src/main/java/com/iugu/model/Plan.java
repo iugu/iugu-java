@@ -2,8 +2,7 @@ package com.iugu.model;
 
 import java.util.List;
 
-import org.codehaus.jackson.annotate.JsonProperty;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.iugu.enums.Currency;
 import com.iugu.enums.IntervalType;
 import com.iugu.enums.PayableWith;

@@ -6,13 +6,14 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.iugu.enums.PayableWith;
 import com.iugu.serializers.DateSerializer;
 import com.iugu.serializers.JsonFormat;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Invoice implements Serializable {
 
 	private static final long serialVersionUID = 1719931730355279382L;
