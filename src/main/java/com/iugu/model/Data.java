@@ -1,8 +1,14 @@
 package com.iugu.model;
 
-import org.codehaus.jackson.annotate.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Data {
+import java.io.Serializable;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Data implements Serializable {
+
+	private static final long serialVersionUID = 3785705464331322710L;
 
 	public Data(String number, String verificationValue, String firstName, String lastName, String month, String year) {
 		this.number = number;

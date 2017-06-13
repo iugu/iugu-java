@@ -1,6 +1,6 @@
 package com.iugu.enums;
 
-import org.codehaus.jackson.annotate.JsonValue;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ItemType {
 

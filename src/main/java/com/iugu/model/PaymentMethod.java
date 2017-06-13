@@ -1,9 +1,6 @@
 package com.iugu.model;
 
-import java.util.List;
-
-import org.codehaus.jackson.annotate.JsonProperty;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.iugu.enums.ItemType;
 
 public class PaymentMethod {

@@ -2,9 +2,15 @@ package com.iugu.model;
 
 
 import com.iugu.enums.PayableWith;
-import org.codehaus.jackson.annotate.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class PaymentToken {
+import java.io.Serializable;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class PaymentToken implements Serializable {
+
+	private static final long serialVersionUID = -7705317667921583734L;
 
 	@JsonProperty("account_id")
 	private String accountId;
