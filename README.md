@@ -8,7 +8,7 @@ InvoiceResponse response;
 
 try {
 	response = new InvoiceService(iuguConfiguration).create(new Invoice("SOMEEMAIL@XXXX.XXXXX", new Date(), new Item("teste", 1, 100)));
-	
+
 	// Retorna ID do Invoice criado (Returns the ID of the created invoice)
 	System.out.println(response.getId());
 }
@@ -21,16 +21,16 @@ catch (IuguException e) {
 ###### Criando um pagamento (Creating a new Payment)
 ```
 	try {
-		IuguConfiguration iuguConfiguration = new IuguConfiguration("xxxxxx");
-		
+		IuguConfiguration iuguConfiguration = new IuguConfiguration("CLIENTTOKEN");
+
 		//token cartão
 		PaymentToken paymentToken = new PaymentToken();
 		paymentToken.setAccountId("xxxxx");
 		paymentToken.setPayableWith(PayableWith.CREDIT_CARD);
-		
+
 		paymentToken.setTest(Boolean.TRUE);
 		paymentToken.setData(new Data("4111111111111111","123","Joao","Mateus","12","2019"));
-		
+
 		PaymentTokenResponse paymentTokenResponse = new PaymentTokenService(iuguConfiguration).create(paymentToken);/
 	} catch (IuguException e) {
 		// TODO Auto-generated catch block
@@ -38,14 +38,12 @@ catch (IuguException e) {
 	}
 ```
 
-###### Criando um usuário (Creating a new User)
+###### Criando um cliente (Creating a new Customer)
 ```
 	try {
-		IuguConfiguration iuguConfiguration = new IuguConfiguration("xxxxxx");
-		
-		Customer customerIugu = new Customer();
-		customerIugu.setEmail("x@me.com");
-		customerIugu.setName("Name");
+		IuguConfiguration iuguConfiguration = new IuguConfiguration("CLIENTTOKEN");
+
+		Customer customerIugu = new Customer("email@email.com","Name");
 		customerIugu.setNotes("more");
 		customerIugu.setCpfCnpj("xxx.xxx.xxx-xx");
 		customerIugu.setCcEmails("");
@@ -57,7 +55,7 @@ catch (IuguException e) {
 		customerIugu.setDistrict("xxx");
 		customerIugu.setComplement("");
 		//customerIugu.setCustomVariables();
-		
+
 		CustomerResponse customerResponse = new CustomerService(iuguConfiguration).create(customerIugu);
 	} catch (IuguException e) {
 		// TODO Auto-generated catch block

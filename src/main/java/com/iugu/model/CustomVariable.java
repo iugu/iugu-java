@@ -12,7 +12,7 @@ public class CustomVariable {
 	private String name;
 
 	private String value;
-	
+
 	@JsonProperty("_destroy")
 	private Boolean destroy;
 

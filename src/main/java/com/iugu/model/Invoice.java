@@ -17,180 +17,137 @@ public class Invoice implements Serializable {
 
 	private static final long serialVersionUID = 1719931730355279382L;
 
-	/**
-	 * E-Mail do cliente
-	 */
-	private String email;
-
-	/**
-	 * Data de Expiração (DD/MM/AAAA)
-	 */
-	@JsonProperty("due_date")
-	@JsonFormat("dd/MM/yyyy")
-	@JsonSerialize(using = DateSerializer.class)
-	private Date dueDate;
-
-	/**
-	 * Itens da Fatura
-	 */
-	private List<Item> items = new ArrayList<>();
-
-	/**
-	 * Payer
-	 */
-	private Payer payer;
-	
-	/**
-	 * Emails de cópia
-	 */
-	@JsonProperty("cc_emails")
-	private String ccEmails;
-
-	/**
-	 * Cliente é redirecionado para essa URL após efetuar o pagamento da Fatura
-	 * pela página de Fatura da Iugu
-	 */
-	@JsonProperty("return_url")
-	private String returnUrl;
-
-	/**
-	 * Cliente é redirecionado para essa URL se a Fatura que estiver acessando
-	 * estiver expirada
-	 */
-	@JsonProperty("expired_url")
-	private String expiredUrl;
-
-	/**
-	 * ID do cliente
-	 */
-	@JsonProperty("customer_id")
-	private String customerId;
-
-	/**
-	 * URL chamada para todas as notificações de Fatura, assim como os webhooks
-	 * (Gatilhos) são chamados
-	 */
-	@JsonProperty("notification_url")
-	private String notificationUrl;
-
-	/**
-	 * Valor dos Impostos em centavos
-	 */
-	@JsonProperty("tax_cents")
-	private Integer taxCents;
-
-	/**
-	 * Booleano para Habilitar ou Desabilitar multa por atraso de pagamento
-	 */
-	private Boolean fines;
-
-	/**
-	 * Determine a multa a ser cobrada para pagamentos efetuados após a data de
-	 * vencimento
-	 */
-	@JsonProperty("late_payment_fine")
-	private Double latePaymentFine;
-
-	/**
-	 * Booleano que determina se cobra ou não juros por dia de atraso. 1% ao mês
-	 * pro rata.
-	 */
-	@JsonProperty("per_day_interest")
-	private Double perDayInterest;
-
-	/**
-	 * Valor dos Descontos em centavos
-	 */
-	@JsonProperty("discount_cents")
-	private Integer discountCents;
-
-	@JsonProperty("payable_with")
-	private PayableWith payableWith;
-
 	public Invoice(String email, Date dueDate, Item... items) {
 		this.email = email;
 		this.dueDate = dueDate;
 		this.items.addAll(Arrays.asList(items)); // FIXME Tratar null pointer
 	}
-	public Invoice(String email, Date dueDate, Payer Payer, Item... items) {
-		this.email = email;
-		this.dueDate = dueDate;
-		this.payer = Payer;
-		this.items.addAll(Arrays.asList(items)); // FIXME Tratar null pointer
-	}
+
+	private String email;
+
+	@JsonProperty("cc_emails")
+	private String ccEmails;
+
+	@JsonProperty("due_date")
+	@JsonFormat("dd/MM/yyyy")
+	@JsonSerialize(using = DateSerializer.class)
+	private Date dueDate;
+
+	private List<Item> items = new ArrayList<>();
+
+	@JsonProperty("return_url")
+	private String returnUrl;
+
+	@JsonProperty("expired_url")
+	private String expiredUrl;
+
+	@JsonProperty("notification_url")
+	private String notificationUrl;
+
+	private Boolean fines;
+
+	@JsonProperty("late_payment_fine")
+	private Double latePaymentFine;
+
+	@JsonProperty("per_day_interest")
+	private Double perDayInterest;
+
+	@JsonProperty("discount_cents")
+	private Integer discountCents;
+
+	@JsonProperty("customer_id")
+	private String customerId;
+
+	@JsonProperty("ignore_due_email")
+	private Boolean ignoreDueEmail;
+
+	@JsonProperty("subscription_id")
+	private String subscriptionId;
+
+	@JsonProperty("payable_with")
+	private PayableWith payableWith;
+
+	@JsonProperty("credits")
+	private Integer credits;
+
+	private List<Logs> logs;
+
+	@JsonProperty("custom_variables")
+	private List<CustomVariable> customVariables;
+
+	private Payer payer;
+
+	@JsonProperty("early_payment_discount")
+	private Boolean earlyPaymentDiscount;
+
+	@JsonProperty("early_payment_discount_days")
+	private Integer earlyPaymentDiscountDays;
+
+	@JsonProperty("early_payment_discount_percent")
+	private Integer earlyPaymentDiscountPercent;
 
 	public String getEmail() {
 		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getCcEmails() {
+		return ccEmails;
+	}
+
+	public void setCcEmails(String ccEmails) {
+		this.ccEmails = ccEmails;
 	}
 
 	public Date getDueDate() {
 		return dueDate;
 	}
 
+	public void setDueDate(Date dueDate) {
+		this.dueDate = dueDate;
+	}
+
 	public List<Item> getItems() {
 		return items;
 	}
 
-	public Payer getPayer() {
-		return payer;
+	public void setItems(List<Item> items) {
+		this.items = items;
 	}
-	
-	public void setPayer(Payer Payer) {
-		this.payer = Payer;
-	}
-	
+
 	public String getReturnUrl() {
 		return returnUrl;
 	}
 
-	public Invoice withReturnUrl(String returnUrl) {
+	public void setReturnUrl(String returnUrl) {
 		this.returnUrl = returnUrl;
-		return this;
 	}
 
 	public String getExpiredUrl() {
 		return expiredUrl;
 	}
 
-	public Invoice withExpiredUrl(String expiredUrl) {
+	public void setExpiredUrl(String expiredUrl) {
 		this.expiredUrl = expiredUrl;
-		return this;
-	}
-
-	public String getCustomerId() {
-		return customerId;
-	}
-
-	public Invoice withCustomerId(String customerId) {
-		this.customerId = customerId;
-		return this;
 	}
 
 	public String getNotificationUrl() {
 		return notificationUrl;
 	}
 
-	public Invoice withNotificationUrl(String notificationUrl) {
+	public void setNotificationUrl(String notificationUrl) {
 		this.notificationUrl = notificationUrl;
-		return this;
-	}
-
-	public Integer getTaxCents() {
-		return taxCents;
-	}
-
-	public Invoice withTaxCents(Integer taxCents) {
-		this.taxCents = taxCents;
-		return this;
 	}
 
 	public Boolean getFines() {
 		return fines;
 	}
 
-	public Invoice withFines(Boolean fines) {
+	public void setFines(Boolean fines) {
 		this.fines = fines;
-		return this;
 	}
 
 	public Double getLatePaymentFine() {
@@ -217,6 +174,30 @@ public class Invoice implements Serializable {
 		this.discountCents = discountCents;
 	}
 
+	public String getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
+	}
+
+	public Boolean getIgnoreDueEmail() {
+		return ignoreDueEmail;
+	}
+
+	public void setIgnoreDueEmail(Boolean ignoreDueEmail) {
+		this.ignoreDueEmail = ignoreDueEmail;
+	}
+
+	public String getSubscriptionId() {
+		return subscriptionId;
+	}
+
+	public void setSubscriptionId(String subscriptionId) {
+		this.subscriptionId = subscriptionId;
+	}
+
 	public PayableWith getPayableWith() {
 		return payableWith;
 	}
@@ -225,13 +206,64 @@ public class Invoice implements Serializable {
 		this.payableWith = payableWith;
 	}
 
-	public String getCcEmails() {
-		return ccEmails;
+	public Integer getCredits() {
+		return credits;
 	}
 
-	public Invoice withCcEmails(String ccEmails) {
-		this.ccEmails = ccEmails;
-		return this;
+	public void setCredits(Integer credits) {
+		this.credits = credits;
+	}
+
+	public List<Logs> getLogs() {
+		return logs;
+	}
+
+	public void setLogs(List<Logs> logs) {
+		this.logs = logs;
+	}
+
+	public List<CustomVariable> getCustomVariables() {
+		return customVariables;
+	}
+
+	public void setCustomVariables(List<CustomVariable> customVariables) {
+		this.customVariables = customVariables;
+	}
+
+	public Payer getPayer() {
+		return payer;
+	}
+
+	public void setPayer(Payer payer) {
+		this.payer = payer;
+	}
+
+	public Boolean getEarlyPaymentDiscount() {
+		return earlyPaymentDiscount;
+	}
+
+	public void setEarlyPaymentDiscount(Boolean earlyPaymentDiscount) {
+		this.earlyPaymentDiscount = earlyPaymentDiscount;
+	}
+
+	public Integer getEarlyPaymentDiscountDays() {
+		return earlyPaymentDiscountDays;
+	}
+
+	public void setEarlyPaymentDiscountDays(Integer earlyPaymentDiscountDays) {
+		this.earlyPaymentDiscountDays = earlyPaymentDiscountDays;
+	}
+
+	public Integer getEarlyPaymentDiscountPercent() {
+		return earlyPaymentDiscountPercent;
+	}
+
+	public void setEarlyPaymentDiscountPercent(Integer earlyPaymentDiscountPercent) {
+		this.earlyPaymentDiscountPercent = earlyPaymentDiscountPercent;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

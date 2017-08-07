@@ -9,90 +9,40 @@ public class Customer implements Serializable {
 
 	private static final long serialVersionUID = 3266886175287194L;
 
-	public Customer() {}
-
-	public Customer(String name) {
+	public Customer(String email, String name) {
+		this.email = email;
 		this.name = name;
 	}
 
-	/**
-	 * Email do cliente
-	 * OBRIGATÓRIO
-	 */
 	private String email;
 
-	/**
-	 * Nome do cliente
-	 * OBRIGATÓRIO
-	 */
 	private String name;
 
-	/**
-	 * Anotações gerais do cliente
-	 */
 	private String notes;
 
-	/**
-	 * cnpj/cpf do cliente
-	 */
 	@JsonProperty("cpf_cnpj")
 	private String cpfCnpj;
 
-	/**
-	 * lista de emails que receberão cópias, em formato string separadas por vírgula
-	 */
 	@JsonProperty("cc_emails")
 	private String ccEmails;
 
-	/**
-	 * CEP
-	 * OBRIGATÓRIO para emissão de boletos registrados
-	 */
 	@JsonProperty("zip_code")
 	private String zipCode;
 
-	/**
-	 * Número do endereço
-	 * OBRIGATÓRIO caso "zip_code" seja enviado.
-	 */
 	private Integer number;
 
-	/**
-	 * Rua.
-	 * OBRIGATÓRIO caso CEP seja incompleto.
-	 */
 	private String street;
 
-	/**
-	 * Cidade
-	 */
 	private String city;
 
-	/**
-	 * Estado
-	 */
 	private String state;
 
-	/**
-	 * Bairro
-	 * OBRIGATÓRIO caso CEP seja incompleto.
-	 */
 	private String district;
 
-	/**
-	 * Complemento de endereço. Ponto de referência.
-	 */
 	private String complement;
 
-	/**
-	 * Variáveis personalizadas
-	 */
 	@JsonProperty("custom_variables")
 	private List<CustomVariable> customVariables;
-
-	public static long getSerialVersionUID() {
-		return serialVersionUID;
-	}
 
 	public String getEmail() {
 		return email;
@@ -198,31 +148,8 @@ public class Customer implements Serializable {
 		this.customVariables = customVariables;
 	}
 
-	/************************************************
-	 * antigos
-	 ************************************************/
-	public Customer withEmail(String email) {
-		this.email = email;
-		return this;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
-	public Customer withCpfCnpj(String cpfCnpj) {
-		this.cpfCnpj = cpfCnpj;
-		return this;
-	}
-
-	public Customer withCcEmails(String ccEmails) {
-		this.ccEmails = ccEmails;
-		return this;
-	}
-
-	public Customer withNotes(String notes) {
-		this.notes = notes;
-		return this;
-	}
-
-	public Customer withCustomVariables(List<CustomVariable> customVariables) {
-		this.customVariables = customVariables;
-		return this;
-	}
 }
