@@ -3,9 +3,12 @@ package com.iugu.model;
 import java.util.Date;
 import java.util.List;
 
+import com.iugu.serializers.DateSerializer;
+import com.iugu.serializers.JsonFormat;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 import com.iugu.enums.PayableWith;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 public class Subscription {
 
@@ -24,6 +27,8 @@ public class Subscription {
 	@JsonProperty("plan_identifier")
 	public String planIdentifier;
 
+	@JsonProperty("expires_at")
+	@JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ") @JsonSerialize(using = DateSerializer.class)
 	public Date expiresAt;
 
 	@JsonProperty("only_on_charge_sucess")
