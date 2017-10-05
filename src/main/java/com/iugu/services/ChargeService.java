@@ -19,7 +19,7 @@ public class ChargeService {
     }
 
     public ChargeResponse create(Charge charge) throws IuguException {
-        Response response = this.iugu.getNewClientNotAuth().target(CREATE_URL).request().post(Entity.entity(charge, MediaType.APPLICATION_JSON));
+        Response response = this.iugu.getNewClient().target(CREATE_URL).request().post(Entity.entity(charge, MediaType.APPLICATION_JSON));
 
         int ResponseStatus = response.getStatus();
         String ResponseText = null;

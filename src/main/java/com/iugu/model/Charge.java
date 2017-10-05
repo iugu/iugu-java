@@ -8,16 +8,12 @@ public class Charge {
     @JsonProperty("token")
     private String token;
 
-    @JsonProperty("customer_id")
-    private String customerId;
-
     @JsonProperty("invoice_id")
     private String invoiceId;
 
 
-    public Charge(String token, String customerId, String invoiceId) {
+    public Charge(String token, String invoiceId) {
         this.token = token;
-        this.customerId = customerId;
         this.invoiceId = invoiceId;
     }
 
@@ -27,14 +23,6 @@ public class Charge {
 
     public void setToken(String token) {
         this.token = token;
-    }
-
-    public String getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
     }
 
     public String getInvoiceId() {
@@ -49,7 +37,6 @@ public class Charge {
     public String toString() {
         return "Charge{" +
                 "token='" + token + '\'' +
-                ", customerId='" + customerId + '\'' +
                 ", invoiceId='" + invoiceId + '\'' +
                 '}';
     }
