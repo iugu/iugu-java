@@ -2,6 +2,7 @@ package com.iugu.responses;
 
 import com.iugu.model.CustomVariable;
 import com.iugu.model.Receiver;
+import com.iugu.model.Sender;
 import com.iugu.serializers.DateSerializer;
 import com.iugu.serializers.JsonFormat;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
@@ -25,6 +26,8 @@ public class TransferResponse {
     private String amountLocalized;
     @JsonProperty("receiver")
     private Receiver receiver;
+    @JsonProperty("sender")
+    private Sender sender;
     @JsonProperty("custom_variables")
     private List<CustomVariable> customVariables;
 
@@ -68,6 +71,14 @@ public class TransferResponse {
         this.receiver = receiver;
     }
 
+    public Sender getSender() {
+        return sender;
+    }
+
+    public void setSender(Sender sender) {
+        this.sender = sender;
+    }
+
     public List<CustomVariable> getCustomVariables() {
         return customVariables;
     }
@@ -84,6 +95,7 @@ public class TransferResponse {
                 ", amountCents='" + amountCents + '\'' +
                 ", amountLocalized='" + amountLocalized + '\'' +
                 ", receiver=" + receiver +
+                ", sender=" + sender +
                 ", customVariables=" + customVariables +
                 '}';
     }
