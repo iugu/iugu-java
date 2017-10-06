@@ -62,3 +62,17 @@ catch (IuguException e) {
 		e.printStackTrace();
 	}
 ```
+
+###### Criando uma cobrança (Creating a new Charge)
+```
+    try {
+        IuguConfiguration iuguConfiguration = new IuguConfiguration("CLIENTTOKEN");
+        ChargeResponse response;
+        Charge charge = new Charge("IUGUJS_TOKEN", "INVOICEID");
+        response = new ChargeService(iuguConfiguration).create(charge);
+        System.out.println(" Charge : {\n\t: "+response.getMessage()+"\n\t: "+response.getSuccess()+"\n\t: "+response.getUrl()+"\n\t: "+response.getPdf()+"\n\t: "+response.getInvoiceId()+"\n}");
+    } catch (IuguException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+```
