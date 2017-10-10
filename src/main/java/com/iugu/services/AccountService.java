@@ -4,10 +4,8 @@ import com.iugu.IuguConfiguration;
 import com.iugu.exceptions.IuguException;
 import com.iugu.model.Account;
 import com.iugu.model.RequestVerification;
-import com.iugu.responses.AccountConfigurationResponse;
-import com.iugu.responses.ExtractInvoiceResponse;
-import com.iugu.responses.AccountVerificationResponse;
-import com.iugu.responses.TransactionsResponse;
+import com.iugu.model.RequestWithdraw;
+import com.iugu.responses.*;
 
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.GenericType;
@@ -23,6 +21,7 @@ public class AccountService {
     private final String FIND_INVOICES_URL = IuguConfiguration.url("/accounts/invoices");
     private final String REQUEST_VERIFICATION_URL = IuguConfiguration.url("/accounts/%s/request_verification");
     private final String ACCOUNT_CONFIGURATION_URL = IuguConfiguration.url("/accounts/configuration");
+    private final String REQUEST_WITHDRAW_URL = IuguConfiguration.url("/accounts/%s/request_withdraw");
 
     public AccountService(IuguConfiguration iuguConfiguration) {
         this.iugu = iuguConfiguration;
@@ -143,6 +142,23 @@ public class AccountService {
         response.close();
 
         throw new IuguException("Error configuring account!", ResponseStatus, ResponseText);
+    }
+
+    public RequestWithdrawResponse requestWithdraw(RequestWithdraw requestWithdraw, String id) throws IuguException {
+        Response response = this.iugu.getNewClient().target(String.format(REQUEST_WITHDRAW_URL, id)).request().post(Entity.entity(requestWithdraw, MediaType.APPLICATION_JSON));
+        int ResponseStatus = response.getStatus();
+        String ResponseText = null;
+
+        if (ResponseStatus == 200)
+            return response.readEntity(RequestWithdrawResponse.class);
+
+        // Error Happened
+        if (response.hasEntity())
+            ResponseText = response.readEntity(String.class);
+
+        response.close();
+
+        throw new IuguException("Error on request withdraw!", ResponseStatus, ResponseText);
     }
 
 }
