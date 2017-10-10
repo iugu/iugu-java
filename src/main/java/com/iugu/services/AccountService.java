@@ -129,7 +129,7 @@ public class AccountService {
     }
 
     public AccountConfigurationResponse configuration(Account account) throws IuguException {
-        Response response = this.iugu.getNewClient().target(REQUEST_VERIFICATION_URL).request().post(Entity.entity(account, MediaType.APPLICATION_JSON));
+        Response response = this.iugu.getNewClient().target(ACCOUNT_CONFIGURATION_URL).request().post(Entity.entity(account, MediaType.APPLICATION_JSON));
         int ResponseStatus = response.getStatus();
         String ResponseText = null;
 
