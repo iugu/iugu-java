@@ -2,10 +2,14 @@ package com.iugu.services;
 
 import com.iugu.IuguConfiguration;
 import com.iugu.exceptions.IuguException;
+import com.iugu.model.RequestVerification;
 import com.iugu.responses.ExtractInvoiceResponse;
+import com.iugu.responses.RequestVerificationResponse;
 import com.iugu.responses.TransactionsResponse;
 
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.Objects;
@@ -15,6 +19,7 @@ public class AccountService {
     private IuguConfiguration iugu;
     private final String FIND_TRANSACTIONS_URL = IuguConfiguration.url("/accounts/financial");
     private final String FIND_INVOICES_URL = IuguConfiguration.url("/accounts/invoices");
+    private final String REQUEST_VERIFICATION_URL = IuguConfiguration.url("/accounts/%s/request_verification");
 
     public AccountService(IuguConfiguration iuguConfiguration) {
         this.iugu = iuguConfiguration;
@@ -101,5 +106,22 @@ public class AccountService {
         response.close();
 
         throw new IuguException("Error finding invoices! ", ResponseStatus, ResponseText);
+    }
+
+    public RequestVerificationResponse requestVerification(RequestVerification requestVerification) throws IuguException {
+        Response response = this.iugu.getNewClient().target(REQUEST_VERIFICATION_URL).request().post(Entity.entity(requestVerification, MediaType.APPLICATION_JSON));
+        int ResponseStatus = response.getStatus();
+        String ResponseText = null;
+
+        if (ResponseStatus == 200)
+            return response.readEntity(RequestVerificationResponse.class);
+
+        // Error Happened
+        if (response.hasEntity())
+            ResponseText = response.readEntity(String.class);
+
+        response.close();
+
+        throw new IuguException("Error on request verification!", ResponseStatus, ResponseText);
     }
 }
