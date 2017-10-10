@@ -9,7 +9,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 import java.util.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RequestVerificationResponse {
+public class AccountVerificationResponse {
 
     private String id;
     private DataResponse data;
@@ -53,7 +53,7 @@ public class RequestVerificationResponse {
 
     @Override
     public String toString() {
-        return "RequestVerificationResponse{" +
+        return "AccountVerificationResponse{" +
                 "id='" + id + '\'' +
                 ", data=" + data +
                 ", accountId='" + accountId + '\'' +

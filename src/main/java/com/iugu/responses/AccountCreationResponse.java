@@ -4,7 +4,7 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AccountResponse {
+public class AccountCreationResponse {
 
     @JsonProperty("account_id")
     private String accountId;
@@ -59,7 +59,7 @@ public class AccountResponse {
 
     @Override
     public String toString() {
-        return "AccountResponse{" +
+        return "AccountCreationResponse{" +
                 "accountId='" + accountId + '\'' +
                 ", name='" + name + '\'' +
                 ", liveApiToken='" + liveApiToken + '\'' +
