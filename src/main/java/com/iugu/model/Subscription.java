@@ -1,132 +1,123 @@
 package com.iugu.model;
 
+import com.google.gson.annotations.SerializedName;
+import com.iugu.enums.PayableWith;
+
 import java.util.Date;
 import java.util.List;
 
-import org.codehaus.jackson.annotate.JsonProperty;
-
-import com.iugu.enums.PayableWith;
-
 public class Subscription {
 
-	public Subscription(String customerId) {
-		this.customerId = customerId;
+    public Subscription(String customerId) {
+        this.customerId = customerId;
+        setCreditsBased(false);
+        setOnlyOnChargeSuccess(true);
+    }
 
-	}
+    private String customerId;
 
-	@JsonProperty("customer_id")
-	private String customerId;
+    public String getCustomerId() {
+        return customerId;
+    }
 
-	public String getCustomerId() {
-		return customerId;
-	}
+    public String planIdentifier;
 
-	@JsonProperty("plan_identifier")
-	public String planIdentifier;
+    public Date expiresAt;
 
-	public Date expiresAt;
+    public String onlyOnChargeSuccess;
 
-	@JsonProperty("only_on_charge_sucess")
-	public String onlyOnChargeSucess;
+    public PayableWith payableWith;
 
-	@JsonProperty("payable_with")
-	public PayableWith payableWith;
+    public String creditsBased;
 
-	@JsonProperty("credits_based")
-	public boolean creditsBased;
+    public Integer priceCents;
 
-	@JsonProperty("price_cents")
-	public int priceCents;
+    public Integer creditsCycle;
 
-	@JsonProperty("credits_cycle")
-	public int creditsCycle;
+    public Integer creditsMin;
 
-	@JsonProperty("credits_min")
-	public int creditsMin;
+    public List<CustomVariable> customVariables;
 
-	@JsonProperty("custom_variables")
-	public List<CustomVariable> customVariables;
+    @SerializedName("subitems")
+    public List<SubItem> subItems;
 
-	@JsonProperty("subitems")
-	public List<SubItem> subItems;
+    public String getPlanIdentifier() {
+        return planIdentifier;
+    }
 
-	public String getPlanIdentifier() {
-		return planIdentifier;
-	}
+    public void setPlanIdentifier(String planIdentifier) {
+        this.planIdentifier = planIdentifier;
+    }
 
-	public void setPlanIdentifier(String planIdentifier) {
-		this.planIdentifier = planIdentifier;
-	}
+    public Date getExpiresAt() {
+        return expiresAt;
+    }
 
-	public Date getExpiresAt() {
-		return expiresAt;
-	}
+    public void setExpiresAt(Date expiresAt) {
+        this.expiresAt = expiresAt;
+    }
 
-	public void setExpiresAt(Date expiresAt) {
-		this.expiresAt = expiresAt;
-	}
+    public boolean isOnlyOnChargeSuccess() {
+        return onlyOnChargeSuccess.equalsIgnoreCase("true");
+    }
 
-	public String getOnlyOnChargeSucess() {
-		return onlyOnChargeSucess;
-	}
+    public void setOnlyOnChargeSuccess(boolean onlyOnChargeSuccess) {
+        this.onlyOnChargeSuccess = (onlyOnChargeSuccess ? "true" : "false");
+    }
 
-	public void setOnlyOnChargeSucess(String onlyOnChargeSucess) {
-		this.onlyOnChargeSucess = onlyOnChargeSucess;
-	}
+    public PayableWith getPayableWith() {
+        return payableWith;
+    }
 
-	public PayableWith getPayableWith() {
-		return payableWith;
-	}
+    public void setPayableWith(PayableWith payableWith) {
+        this.payableWith = payableWith;
+    }
 
-	public void setPayableWith(PayableWith payableWith) {
-		this.payableWith = payableWith;
-	}
+    public boolean isCreditsBased() {
+        return creditsBased.equalsIgnoreCase("true");
+    }
 
-	public boolean isCreditsBased() {
-		return creditsBased;
-	}
+    public void setCreditsBased(boolean creditsBased) {
+        this.creditsBased = (creditsBased ? "true" : "false");
+    }
 
-	public void setCreditsBased(boolean creditsBased) {
-		this.creditsBased = creditsBased;
-	}
+    public Integer getPriceCents() {
+        return priceCents;
+    }
 
-	public int getPriceCents() {
-		return priceCents;
-	}
+    public void setPriceCents(Integer priceCents) {
+        this.priceCents = priceCents;
+    }
 
-	public void setPriceCents(int priceCents) {
-		this.priceCents = priceCents;
-	}
+    public Integer getCreditsCycle() {
+        return creditsCycle;
+    }
 
-	public int getCreditsCycle() {
-		return creditsCycle;
-	}
+    public void setCreditsCycle(Integer creditsCycle) {
+        this.creditsCycle = creditsCycle;
+    }
 
-	public void setCreditsCycle(int creditsCycle) {
-		this.creditsCycle = creditsCycle;
-	}
+    public Integer getCreditsMin() {
+        return creditsMin;
+    }
 
-	public int getCreditsMin() {
-		return creditsMin;
-	}
+    public void setCreditsMin(Integer creditsMin) {
+        this.creditsMin = creditsMin;
+    }
 
-	public void setCreditsMin(int creditsMin) {
-		this.creditsMin = creditsMin;
-	}
+    public List<CustomVariable> getCustomVariables() {
+        return customVariables;
+    }
 
-	public List<CustomVariable> getCustomVariables() {
-		return customVariables;
-	}
+    public void setCustomVariables(List<CustomVariable> customVariables) {
+        this.customVariables = customVariables;
+    }
 
-	public void setCustomVariables(List<CustomVariable> customVariables) {
-		this.customVariables = customVariables;
-	}
+    public List<SubItem> getSubItems() {
+        return subItems;
+    }
 
-	public List<SubItem> getSubItems() {
-		return subItems;
-	}
-
-	public void setSubItems(List<SubItem> subItems) {
-		this.subItems = subItems;
-	}
+    public void setSubItems(List<SubItem> subItems) {
+        this.subItems = subItems;
+    }
 }

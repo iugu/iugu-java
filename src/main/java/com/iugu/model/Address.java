@@ -2,13 +2,10 @@ package com.iugu.model;
 
 import java.io.Serializable;
 
-import org.codehaus.jackson.annotate.JsonProperty;
-
 public class Address implements Serializable {
 
 	private static final long serialVersionUID = 3266886175287194L;
 
-	@JsonProperty("zip_code")
 	private String zipCode;
 
 	private String street;

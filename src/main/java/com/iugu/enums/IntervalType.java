@@ -1,24 +1,23 @@
 package com.iugu.enums;
 
-import org.codehaus.jackson.annotate.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 public enum IntervalType {
 
-	WEEKS("weeks"), MONTHS("months");
+    @SerializedName("weeks") WEEKS("weeks"), @SerializedName("months") MONTHS("months");
 
-	private String value;
+    private String value;
 
-	private IntervalType(String value) {
-		this.value = value;
-	}
+    private IntervalType(String value) {
+        this.value = value;
+    }
 
-	@JsonValue
-	public String getValue() {
-		return value;
-	}
+    public String getValue() {
+        return value;
+    }
 
-	public void setValue(String value) {
-		this.value = value;
-	}
+    public void setValue(String value) {
+        this.value = value;
+    }
 
 }

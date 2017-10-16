@@ -1,19 +1,13 @@
 package com.iugu.responses;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class PriceResponse {
 
 	private String id;
 	
 	private String currency;
 	
-	@JsonProperty("plan_id")
 	private String planId;
 	
-	@JsonProperty("value_cents")
 	private Integer valueCents;
 
 	public String getId() {

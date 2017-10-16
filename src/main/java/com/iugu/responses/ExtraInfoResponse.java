@@ -1,27 +1,17 @@
 package com.iugu.responses;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class ExtraInfoResponse {
 
-	@JsonProperty("brand")
 	private Object brand;
 
-	@JsonProperty("holder_name")
 	private Object holderName;
 
-	@JsonProperty("display_number")
 	private Object displayNumber;
 
-	@JsonProperty("bin")
 	private Object bin;
 
-	@JsonProperty("month")
 	private Integer month;
 
-	@JsonProperty("year")
 	private Integer year;
 
 	public Object getBrand() {

@@ -1,55 +1,50 @@
 package com.iugu.model;
 
-import org.codehaus.jackson.annotate.JsonProperty;
-
 public class Data {
 
-	public Data(String number, String verificationValue, String firstName, String lastName, String month, String year) {
-		this.number = number;
-		this.verificationValue = verificationValue;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.month = month;
-		this.year = year;
-	}
+    public Data(String number, String verificationValue, String firstName, String lastName, String month, String year) {
+        this.number = number;
+        this.verificationValue = verificationValue;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.month = month;
+        this.year = year;
+    }
 
-	String number;
+    private String number;
 
-	@JsonProperty("verification_value")
-	String verificationValue;
+    private String verificationValue;
 
-	@JsonProperty("first_name")
-	String firstName;
+    private String firstName;
 
-	@JsonProperty("last_name")
-	String lastName;
+    private String lastName;
 
-	String month;
+    private String month;
 
-	String year;
+    private String year;
 
-	public String getNumber() {
-		return number;
-	}
+    public String getNumber() {
+        return number;
+    }
 
-	public String getVerificationValue() {
-		return verificationValue;
-	}
+    public String getVerificationValue() {
+        return verificationValue;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public String getMonth() {
-		return month;
-	}
+    public String getMonth() {
+        return month;
+    }
 
-	public String getYear() {
-		return year;
-	}
+    public String getYear() {
+        return year;
+    }
 
 }

@@ -1,273 +1,271 @@
 package com.iugu.responses;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 import java.util.List;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-
-import com.iugu.serializers.DateSerializer;
-import com.iugu.serializers.JsonFormat;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class SubscriptionResponse {
 
-	private String id;
-	
-	private Boolean suspended;
-	
-	@JsonProperty("plan_identifier")
-	private String planIdentifier;
-	
-	@JsonProperty("price_cents")
-	private Integer priceCents;
-	
-	private String currency;
-	
-	//TODO Features
-	@JsonProperty("expires_at")
-	@JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ") @JsonSerialize(using = DateSerializer.class)
-	private Date expiresAt;
-	
-	@JsonProperty("customer_name")
-	private String customerName;
-	
-	@JsonProperty("customer_email")
-	private String customerEmail;
-	
-	@JsonProperty("cycled_at")
-	@JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ") @JsonSerialize(using = DateSerializer.class)
-	private Date cycledAt;
-	
-	@JsonProperty("credits_min")
-	private Integer creditsMin;
-	
-	//TODO Credits Cycle
-	
-	@JsonProperty("customer_id")
-	private String customerId;
-	
-	@JsonProperty("plan_name")
-	private String planName;
-	
-	@JsonProperty("customer_ref")
-	private String customerRef;
-	
-	@JsonProperty("plan_ref")
-	private String planRef;
-	
-	private Boolean active;
-	
-	@JsonProperty("in_trial")
-	private Boolean inTrial;
-	
-	private Integer credits;
-	
-	@JsonProperty("credits_based")
-	private Boolean creditsBased;
-	
-	//TODO Recent Invoices
-	
-	private List<SubItemResponse> subitems;
-	
-	private List<LogResponse> logs;
-	
-	@JsonProperty("custom_variables")
-	private List<CustomVariableResponse> customVariables;
+    private String id;
 
-	public String getId() {
-		return id;
-	}
+    private Boolean suspended;
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    private String planIdentifier;
 
-	public Boolean getSuspended() {
-		return suspended;
-	}
+    private Integer priceCents;
 
-	public void setSuspended(Boolean suspended) {
-		this.suspended = suspended;
-	}
+    private String currency;
 
-	public String getPlanIdentifier() {
-		return planIdentifier;
-	}
+    //TODO Features
+    private Date expiresAt;
 
-	public void setPlanIdentifier(String planIdentifier) {
-		this.planIdentifier = planIdentifier;
-	}
+    private String customerName;
 
-	public Integer getPriceCents() {
-		return priceCents;
-	}
+    private String customerEmail;
 
-	public void setPriceCents(Integer priceCents) {
-		this.priceCents = priceCents;
-	}
+    private Date cycledAt;
 
-	public String getCurrency() {
-		return currency;
-	}
+    private Integer creditsMin;
 
-	public void setCurrency(String currency) {
-		this.currency = currency;
-	}
+    //TODO Credits Cycle
 
-	public Date getExpiresAt() {
-		return expiresAt;
-	}
+    private String customerId;
 
-	public void setExpiresAt(Date expiresAt) {
-		this.expiresAt = expiresAt;
-	}
+    private String planName;
 
-	public String getCustomerName() {
-		return customerName;
-	}
+    private String customerRef;
 
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
-	}
+    private String planRef;
 
-	public String getCustomerEmail() {
-		return customerEmail;
-	}
+    private Boolean active;
 
-	public void setCustomerEmail(String customerEmail) {
-		this.customerEmail = customerEmail;
-	}
+    private Boolean inTrial;
 
-	public Date getCycledAt() {
-		return cycledAt;
-	}
+    private Integer credits;
 
-	public void setCycledAt(Date cycledAt) {
-		this.cycledAt = cycledAt;
-	}
+    private Boolean creditsBased;
 
-	public Integer getCreditsMin() {
-		return creditsMin;
-	}
+    private String errors;
+    @SerializedName("LR")
+    private String lr;
 
-	public void setCreditsMin(Integer creditsMin) {
-		this.creditsMin = creditsMin;
-	}
+    //TODO Recent Invoices
 
-	public String getCustomerId() {
-		return customerId;
-	}
+    private List<SubItemResponse> subitems;
 
-	public void setCustomerId(String customerId) {
-		this.customerId = customerId;
-	}
+    private List<LogResponse> logs;
 
-	public String getPlanName() {
-		return planName;
-	}
+    private List<CustomVariableResponse> customVariables;
 
-	public void setPlanName(String planName) {
-		this.planName = planName;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public String getCustomerRef() {
-		return customerRef;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public void setCustomerRef(String customerRef) {
-		this.customerRef = customerRef;
-	}
+    public Boolean getSuspended() {
+        return suspended;
+    }
 
-	public String getPlanRef() {
-		return planRef;
-	}
+    public void setSuspended(Boolean suspended) {
+        this.suspended = suspended;
+    }
 
-	public void setPlanRef(String planRef) {
-		this.planRef = planRef;
-	}
+    public String getPlanIdentifier() {
+        return planIdentifier;
+    }
 
-	public Boolean getActive() {
-		return active;
-	}
+    public void setPlanIdentifier(String planIdentifier) {
+        this.planIdentifier = planIdentifier;
+    }
 
-	public void setActive(Boolean active) {
-		this.active = active;
-	}
+    public Integer getPriceCents() {
+        return priceCents;
+    }
 
-	public Boolean getInTrial() {
-		return inTrial;
-	}
+    public void setPriceCents(Integer priceCents) {
+        this.priceCents = priceCents;
+    }
 
-	public void setInTrial(Boolean inTrial) {
-		this.inTrial = inTrial;
-	}
+    public String getCurrency() {
+        return currency;
+    }
 
-	public Integer getCredits() {
-		return credits;
-	}
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
 
-	public void setCredits(Integer credits) {
-		this.credits = credits;
-	}
+    public Date getExpiresAt() {
+        return expiresAt;
+    }
 
-	public Boolean getCreditsBased() {
-		return creditsBased;
-	}
+    public void setExpiresAt(Date expiresAt) {
+        this.expiresAt = expiresAt;
+    }
 
-	public void setCreditsBased(Boolean creditsBased) {
-		this.creditsBased = creditsBased;
-	}
+    public String getCustomerName() {
+        return customerName;
+    }
 
-	public List<SubItemResponse> getSubitems() {
-		return subitems;
-	}
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
 
-	public void setSubitems(List<SubItemResponse> subitems) {
-		this.subitems = subitems;
-	}
+    public String getCustomerEmail() {
+        return customerEmail;
+    }
 
-	public List<LogResponse> getLogs() {
-		return logs;
-	}
+    public void setCustomerEmail(String customerEmail) {
+        this.customerEmail = customerEmail;
+    }
 
-	public void setLogs(List<LogResponse> logs) {
-		this.logs = logs;
-	}
+    public Date getCycledAt() {
+        return cycledAt;
+    }
 
-	public List<CustomVariableResponse> getCustomVariables() {
-		return customVariables;
-	}
+    public void setCycledAt(Date cycledAt) {
+        this.cycledAt = cycledAt;
+    }
 
-	public void setCustomVariables(List<CustomVariableResponse> customVariables) {
-		this.customVariables = customVariables;
-	}
+    public Integer getCreditsMin() {
+        return creditsMin;
+    }
 
-	@Override
-	public String toString() {
-		return "SubscriptionResponse{" +
-				"id='" + id + '\'' +
-				", suspended=" + suspended +
-				", planIdentifier='" + planIdentifier + '\'' +
-				", priceCents=" + priceCents +
-				", currency='" + currency + '\'' +
-				", expiresAt=" + expiresAt +
-				", customerName='" + customerName + '\'' +
-				", customerEmail='" + customerEmail + '\'' +
-				", cycledAt=" + cycledAt +
-				", creditsMin=" + creditsMin +
-				", customerId='" + customerId + '\'' +
-				", planName='" + planName + '\'' +
-				", customerRef='" + customerRef + '\'' +
-				", planRef='" + planRef + '\'' +
-				", active=" + active +
-				", inTrial=" + inTrial +
-				", credits=" + credits +
-				", creditsBased=" + creditsBased +
-				", subitems=" + subitems +
-				", logs=" + logs +
-				", customVariables=" + customVariables +
-				'}';
-	}
+    public void setCreditsMin(Integer creditsMin) {
+        this.creditsMin = creditsMin;
+    }
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getPlanName() {
+        return planName;
+    }
+
+    public void setPlanName(String planName) {
+        this.planName = planName;
+    }
+
+    public String getCustomerRef() {
+        return customerRef;
+    }
+
+    public void setCustomerRef(String customerRef) {
+        this.customerRef = customerRef;
+    }
+
+    public String getPlanRef() {
+        return planRef;
+    }
+
+    public void setPlanRef(String planRef) {
+        this.planRef = planRef;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public Boolean getInTrial() {
+        return inTrial;
+    }
+
+    public void setInTrial(Boolean inTrial) {
+        this.inTrial = inTrial;
+    }
+
+    public Integer getCredits() {
+        return credits;
+    }
+
+    public void setCredits(Integer credits) {
+        this.credits = credits;
+    }
+
+    public Boolean getCreditsBased() {
+        return creditsBased;
+    }
+
+    public void setCreditsBased(Boolean creditsBased) {
+        this.creditsBased = creditsBased;
+    }
+
+    public List<SubItemResponse> getSubitems() {
+        return subitems;
+    }
+
+    public void setSubitems(List<SubItemResponse> subitems) {
+        this.subitems = subitems;
+    }
+
+    public List<LogResponse> getLogs() {
+        return logs;
+    }
+
+    public void setLogs(List<LogResponse> logs) {
+        this.logs = logs;
+    }
+
+    public List<CustomVariableResponse> getCustomVariables() {
+        return customVariables;
+    }
+
+    public void setCustomVariables(List<CustomVariableResponse> customVariables) {
+        this.customVariables = customVariables;
+    }
+
+    public String getErrors() {
+        return errors;
+    }
+
+    public void setErrors(String errors) {
+        this.errors = errors;
+    }
+
+    public String getLr() {
+        return lr;
+    }
+
+    public void setLr(String lr) {
+        this.lr = lr;
+    }
+
+    @Override
+    public String toString() {
+        return "SubscriptionResponse{" +
+                "id='" + id + '\'' +
+                ", suspended=" + suspended +
+                ", planIdentifier='" + planIdentifier + '\'' +
+                ", priceCents=" + priceCents +
+                ", currency='" + currency + '\'' +
+                ", expiresAt=" + expiresAt +
+                ", customerName='" + customerName + '\'' +
+                ", customerEmail='" + customerEmail + '\'' +
+                ", cycledAt=" + cycledAt +
+                ", creditsMin=" + creditsMin +
+                ", customerId='" + customerId + '\'' +
+                ", planName='" + planName + '\'' +
+                ", customerRef='" + customerRef + '\'' +
+                ", planRef='" + planRef + '\'' +
+                ", active=" + active +
+                ", inTrial=" + inTrial +
+                ", credits=" + credits +
+                ", creditsBased=" + creditsBased +
+                ", subitems=" + subitems +
+                ", logs=" + logs +
+                ", customVariables=" + customVariables +
+                '}';
+    }
 }

@@ -1,15 +1,12 @@
 package com.iugu.model;
 
 
-import org.codehaus.jackson.annotate.JsonProperty;
-
 public class Item {
 
 	private String description;
 	
 	private Integer quantity;
 	
-	@JsonProperty("price_cents")
 	private Integer priceCents;
 	
 	public Item(String description, Integer quantity, Integer priceCents) {

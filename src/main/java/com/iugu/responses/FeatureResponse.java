@@ -1,9 +1,5 @@
 package com.iugu.responses;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class FeatureResponse {
 
 	private String id;
@@ -14,7 +10,6 @@ public class FeatureResponse {
 	
 	private String name;
 	
-	@JsonProperty("plan_id")
 	private String planId;
 	
 	private Integer position;

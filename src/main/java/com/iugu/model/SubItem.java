@@ -1,14 +1,11 @@
 package com.iugu.model;
 
-import org.codehaus.jackson.annotate.JsonProperty;
-
 public class SubItem {
 
 	private String description;
 
 	private Integer quantity;
 
-	@JsonProperty("price_cents")
 	private Integer priceCents;
 
 	private boolean recurrent;

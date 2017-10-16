@@ -1,8 +1,5 @@
 package com.iugu.responses;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class VariableResponse {
 
 	private String id;

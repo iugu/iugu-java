@@ -4,79 +4,50 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-
-import com.iugu.serializers.DateSerializer;
-import com.iugu.serializers.JsonFormat;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class InvoiceResponse implements Serializable {
 
 	private static final long serialVersionUID = -4229186497940178039L;
 
 	private String id;
 
-	@JsonProperty("due_date")
-	@JsonFormat("yyyy-MM-dd")
-	@JsonSerialize(using = DateSerializer.class)
 	private String dueDate;
 
 	private String currency;
 
-	@JsonProperty("discount_cents")
 	private Integer discountCents;
 
 	private String email;
 
-	@JsonProperty("items_total_cents")
 	private Integer itemsTotalCents;
 
-	@JsonProperty("notification_url")
 	private String notificationUrl;
 
-	@JsonProperty("return_url")
 	private String returnUrl;
 
 	private String status;
 
-	@JsonProperty("tax_cents")
 	private Integer taxCents;
 
-	@JsonProperty("updated_at")
-	@JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-	@JsonSerialize(using = DateSerializer.class)
 	private Date updatedAt;
 
-	@JsonProperty("total_cents")
 	private Integer totalCents;
 
-	@JsonProperty("paid_at")
 	private Date paidAt;
 
-	@JsonProperty("secure_id")
 	private String secureId;
 
-	@JsonProperty("secure_url")
 	private String secureUrl;
 
-	@JsonProperty("customer_id")
 	private String customerId;
 
-	@JsonProperty("user_id")
 	private Long userId;
 
-	@JsonProperty("total")
 	private String total;
 
-	@JsonProperty("total_paid")
 	private String totalPaid;
 
-	@JsonProperty("total_on_occurrence_day")
 	private String totalOnOccurrenceDay;
 
-	@JsonProperty("taxes_paid")
 	private String taxesPaid;
 
 	private String interest;
@@ -87,7 +58,6 @@ public class InvoiceResponse implements Serializable {
 
 	private String installments;
 
-	@JsonProperty("bank_slip")
 	private BankSlipResponse bankSlip;
 
 	private List<ItemResponse> items;

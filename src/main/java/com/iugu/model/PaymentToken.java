@@ -1,62 +1,58 @@
 package com.iugu.model;
 
-
+import com.google.gson.annotations.SerializedName;
 import com.iugu.enums.PayableWith;
-import org.codehaus.jackson.annotate.JsonProperty;
 
 public class PaymentToken {
 
-	@JsonProperty("account_id")
-	private String accountId;
+    private String accountId;
 
-	@JsonProperty("method")
-	private PayableWith payableWith;
+    @SerializedName("method")
+    private PayableWith payableWith;
 
-	@JsonProperty("test")
-	private Boolean isTest;
+    private Boolean test;
 
-	@JsonProperty("data")
-	private Data data;
+    private Data data;
 
-	public String getAccountId() {
-		return accountId;
-	}
+    public String getAccountId() {
+        return accountId;
+    }
 
-	public void setAccountId(String accountId) {
-		this.accountId = accountId;
-	}
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
+    }
 
-	public PayableWith getPayableWith() {
-		return payableWith;
-	}
+    public PayableWith getPayableWith() {
+        return payableWith;
+    }
 
-	public void setPayableWith(PayableWith payableWith) {
-		this.payableWith = payableWith;
-	}
+    public void setPayableWith(PayableWith payableWith) {
+        this.payableWith = payableWith;
+    }
 
-	public Boolean getTest() {
-		return isTest;
-	}
+    public Boolean isTest() {
+        return test;
+    }
 
-	public void setTest(Boolean test) {
-		isTest = test;
-	}
+    public void setTest(Boolean test) {
+        this.test = test;
+    }
 
-	public Data getData() {
-		return data;
-	}
+    public Data getData() {
+        return data;
+    }
 
-	public void setData(Data data) {
-		this.data = data;
-	}
+    public void setData(Data data) {
+        this.data = data;
+    }
 
-	@Override
-	public String toString() {
-		return "PaymentToken{" +
-				"accountId='" + accountId + '\'' +
-				", payableWith=" + payableWith +
-				", isTest=" + isTest +
-				", data=" + data +
-				'}';
-	}
+    @Override
+    public String toString() {
+        return "PaymentToken{" +
+                "accountId='" + accountId + '\'' +
+                ", payableWith=" + payableWith +
+                ", test=" + test +
+                ", data=" + data +
+                '}';
+    }
 }

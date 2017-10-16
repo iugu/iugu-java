@@ -3,153 +3,147 @@ package com.iugu.model;
 import java.io.Serializable;
 import java.util.List;
 
-import org.codehaus.jackson.annotate.JsonProperty;
-
 public class Customer implements Serializable {
 
-	private static final long serialVersionUID = 3266886175287194L;
+    private static final long serialVersionUID = 3266886175287194L;
 
-	public Customer(String email, String name) {
-		this.email = email;
-		this.name = name;
-	}
+    public Customer(String email, String name) {
+        this.email = email;
+        this.name = name;
+    }
 
-	private String email;
+    private String email;
 
-	private String name;
+    private String name;
 
-	private String notes;
+    private String notes;
 
-	@JsonProperty("cpf_cnpj")
-	private String cpfCnpj;
+    private String cpfCnpj;
 
-	@JsonProperty("cc_emails")
-	private String ccEmails;
+    private String ccEmails;
 
-	@JsonProperty("zip_code")
-	private String zipCode;
+    private String zipCode;
 
-	private Integer number;
+    private Integer number;
 
-	private String street;
+    private String street;
 
-	private String city;
+    private String city;
 
-	private String state;
+    private String state;
 
-	private String district;
+    private String district;
 
-	private String complement;
+    private String complement;
 
-	@JsonProperty("custom_variables")
-	private List<CustomVariable> customVariables;
+    private List<CustomVariable> customVariables;
 
-	public String getEmail() {
-		return email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getNotes() {
-		return notes;
-	}
+    public String getNotes() {
+        return notes;
+    }
 
-	public void setNotes(String notes) {
-		this.notes = notes;
-	}
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
 
-	public String getCpfCnpj() {
-		return cpfCnpj;
-	}
+    public String getCpfCnpj() {
+        return cpfCnpj;
+    }
 
-	public void setCpfCnpj(String cpfCnpj) {
-		this.cpfCnpj = cpfCnpj;
-	}
+    public void setCpfCnpj(String cpfCnpj) {
+        this.cpfCnpj = cpfCnpj;
+    }
 
-	public String getCcEmails() {
-		return ccEmails;
-	}
+    public String getCcEmails() {
+        return ccEmails;
+    }
 
-	public void setCcEmails(String ccEmails) {
-		this.ccEmails = ccEmails;
-	}
+    public void setCcEmails(String ccEmails) {
+        this.ccEmails = ccEmails;
+    }
 
-	public String getZipCode() {
-		return zipCode;
-	}
+    public String getZipCode() {
+        return zipCode;
+    }
 
-	public void setZipCode(String zipCode) {
-		this.zipCode = zipCode;
-	}
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
 
-	public Integer getNumber() {
-		return number;
-	}
+    public Integer getNumber() {
+        return number;
+    }
 
-	public void setNumber(Integer number) {
-		this.number = number;
-	}
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
 
-	public String getStreet() {
-		return street;
-	}
+    public String getStreet() {
+        return street;
+    }
 
-	public void setStreet(String street) {
-		this.street = street;
-	}
+    public void setStreet(String street) {
+        this.street = street;
+    }
 
-	public String getCity() {
-		return city;
-	}
+    public String getCity() {
+        return city;
+    }
 
-	public void setCity(String city) {
-		this.city = city;
-	}
+    public void setCity(String city) {
+        this.city = city;
+    }
 
-	public String getState() {
-		return state;
-	}
+    public String getState() {
+        return state;
+    }
 
-	public void setState(String state) {
-		this.state = state;
-	}
+    public void setState(String state) {
+        this.state = state;
+    }
 
-	public String getDistrict() {
-		return district;
-	}
+    public String getDistrict() {
+        return district;
+    }
 
-	public void setDistrict(String district) {
-		this.district = district;
-	}
+    public void setDistrict(String district) {
+        this.district = district;
+    }
 
-	public String getComplement() {
-		return complement;
-	}
+    public String getComplement() {
+        return complement;
+    }
 
-	public void setComplement(String complement) {
-		this.complement = complement;
-	}
+    public void setComplement(String complement) {
+        this.complement = complement;
+    }
 
-	public List<CustomVariable> getCustomVariables() {
-		return customVariables;
-	}
+    public List<CustomVariable> getCustomVariables() {
+        return customVariables;
+    }
 
-	public void setCustomVariables(List<CustomVariable> customVariables) {
-		this.customVariables = customVariables;
-	}
+    public void setCustomVariables(List<CustomVariable> customVariables) {
+        this.customVariables = customVariables;
+    }
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 
 }

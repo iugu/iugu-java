@@ -1,9 +1,5 @@
 package com.iugu.responses;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class LogResponse {
 
 	private String id;
@@ -12,7 +8,6 @@ public class LogResponse {
 
 	private String notes;
 
-	@JsonProperty("created_at")
 	private String createdAt;
 
 	public String getId() {

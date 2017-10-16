@@ -1,9 +1,5 @@
 package com.iugu.responses;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class SubItemResponse {
 
 	private String id;
@@ -12,7 +8,6 @@ public class SubItemResponse {
 	
 	private Integer quantity;
 	
-	@JsonProperty("price_cents")
 	private Integer priceCents;
 	
 	private String price;

@@ -1,46 +1,38 @@
 package com.iugu.responses;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class PaymentTokenResponse {
 
-	@JsonProperty("id")
-	private String id;
+    private String id;
 
-	@JsonProperty("method")
-	private String method;
+    private String method;
 
-	@JsonProperty("test")
-	private Boolean isTest;
+    private Boolean test;
 
-	@JsonProperty("extra_info")
-	private ExtraInfoResponse extraInfo;
+    private ExtraInfoResponse extraInfo;
 
-	public String getId() {
-		return id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public String getMethod() {
-		return method;
-	}
+    public String getMethod() {
+        return method;
+    }
 
-	public Boolean getTest() {
-		return isTest;
-	}
+    public Boolean isTest() {
+        return test;
+    }
 
-	public ExtraInfoResponse getExtraInfo() {
-		return extraInfo;
-	}
+    public ExtraInfoResponse getExtraInfo() {
+        return extraInfo;
+    }
 
-	@Override
-	public String toString() {
-		return "PaymentTokenResponse{" +
-				"id='" + id + '\'' +
-				", method='" + method + '\'' +
-				", isTest=" + isTest +
-				", extraInfo=" + extraInfo +
-				'}';
-	}
+    @Override
+    public String toString() {
+        return "PaymentTokenResponse{" +
+                "id='" + id + '\'' +
+                ", method='" + method + '\'' +
+                ", test=" + test +
+                ", extraInfo=" + extraInfo +
+                '}';
+    }
 }
