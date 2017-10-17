@@ -3,9 +3,7 @@ package com.iugu.services;
 import com.iugu.IuguConfiguration;
 import com.iugu.exceptions.IuguException;
 import com.iugu.model.PaymentMethod;
-import com.iugu.model.PaymentToken;
 import com.iugu.responses.PaymentMethodResponse;
-import com.iugu.responses.PaymentTokenResponse;
 
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;

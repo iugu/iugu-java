@@ -6,13 +6,12 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.iugu.enums.PayableWith;
-import com.iugu.serializers.DateSerializer;
-import com.iugu.serializers.JsonFormat;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Invoice implements Serializable {
 
 	private static final long serialVersionUID = 1719931730355279382L;
@@ -29,8 +28,7 @@ public class Invoice implements Serializable {
 	private String ccEmails;
 
 	@JsonProperty("due_date")
-	@JsonFormat("dd/MM/yyyy")
-	@JsonSerialize(using = DateSerializer.class)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	private Date dueDate;
 
 	private List<Item> items = new ArrayList<>();

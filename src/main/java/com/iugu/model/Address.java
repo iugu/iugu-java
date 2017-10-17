@@ -1,8 +1,8 @@
 package com.iugu.model;
 
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import org.codehaus.jackson.annotate.JsonProperty;
+import java.io.Serializable;
 
 public class Address implements Serializable {
 

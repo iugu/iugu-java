@@ -1,10 +1,7 @@
 package com.iugu.responses;
 
-import com.iugu.serializers.DateSerializer;
-import com.iugu.serializers.JsonFormat;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 
@@ -16,7 +13,6 @@ public class AccountVerificationResponse {
     @JsonProperty("account_id")
     private String accountId;
     @JsonProperty("created_at")
-    @JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ") @JsonSerialize(using = DateSerializer.class)
     private Date createdAt;
 
     public String getId() {

@@ -4,12 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-
-import com.iugu.serializers.DateSerializer;
-import com.iugu.serializers.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class InvoiceResponse implements Serializable {
@@ -19,8 +16,6 @@ public class InvoiceResponse implements Serializable {
 	private String id;
 
 	@JsonProperty("due_date")
-	@JsonFormat("yyyy-MM-dd")
-	@JsonSerialize(using = DateSerializer.class)
 	private String dueDate;
 
 	private String currency;
@@ -45,8 +40,6 @@ public class InvoiceResponse implements Serializable {
 	private Integer taxCents;
 
 	@JsonProperty("updated_at")
-	@JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-	@JsonSerialize(using = DateSerializer.class)
 	private Date updatedAt;
 
 	@JsonProperty("total_cents")

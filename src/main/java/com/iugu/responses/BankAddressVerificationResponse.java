@@ -1,9 +1,6 @@
 package com.iugu.responses;
 
-import com.iugu.serializers.DateSerializer;
-import com.iugu.serializers.JsonFormat;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 
@@ -12,12 +9,8 @@ public class BankAddressVerificationResponse {
     private String id;
     private String status;
     @JsonProperty("created_at")
-    @JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-    @JsonSerialize(using = DateSerializer.class)
     private Date createdAt;
     @JsonProperty("updated_at")
-    @JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-    @JsonSerialize(using = DateSerializer.class)
     private Date updatedAt;
     private String account;
     private String agency;

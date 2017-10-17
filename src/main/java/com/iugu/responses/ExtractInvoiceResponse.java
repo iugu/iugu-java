@@ -1,10 +1,8 @@
 package com.iugu.responses;
 
-import com.iugu.serializers.DateSerializer;
-import com.iugu.serializers.JsonFormat;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 
@@ -13,12 +11,8 @@ public class ExtractInvoiceResponse {
 
     private String id;
     @JsonProperty("created_at")
-    @JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-    @JsonSerialize(using = DateSerializer.class)
     private Date createdAt;
     @JsonProperty("due_date")
-    @JsonFormat("yyyy-MM-dd")
-    @JsonSerialize(using = DateSerializer.class)
     private Date dueDate;
     @JsonProperty("paid_at")
     private Date paidAt;

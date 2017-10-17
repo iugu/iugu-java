@@ -1,6 +1,6 @@
 package com.iugu.model;
 
-import org.codehaus.jackson.annotate.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Transfer {
 

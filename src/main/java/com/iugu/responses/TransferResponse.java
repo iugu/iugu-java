@@ -1,13 +1,10 @@
 package com.iugu.responses;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.iugu.model.CustomVariable;
 import com.iugu.model.Receiver;
 import com.iugu.model.Sender;
-import com.iugu.serializers.DateSerializer;
-import com.iugu.serializers.JsonFormat;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 import java.util.Date;
 import java.util.List;
@@ -18,7 +15,6 @@ public class TransferResponse {
     @JsonProperty("id")
     private String id;
     @JsonProperty("created_at")
-    @JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ") @JsonSerialize(using = DateSerializer.class)
     private Date createdAt;
     @JsonProperty("amount_cents")
     private String amountCents;

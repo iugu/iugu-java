@@ -1,8 +1,7 @@
 package com.iugu.model;
 
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.iugu.enums.PayableWith;
-import org.codehaus.jackson.annotate.JsonProperty;
 
 public class PaymentToken {
 

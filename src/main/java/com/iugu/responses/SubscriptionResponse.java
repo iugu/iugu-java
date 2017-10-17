@@ -3,12 +3,9 @@ package com.iugu.responses;
 import java.util.Date;
 import java.util.List;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-
-import com.iugu.serializers.DateSerializer;
-import com.iugu.serializers.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubscriptionResponse {
@@ -27,7 +24,6 @@ public class SubscriptionResponse {
 	
 	//TODO Features
 	@JsonProperty("expires_at")
-	@JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ") @JsonSerialize(using = DateSerializer.class)
 	private Date expiresAt;
 	
 	@JsonProperty("customer_name")
@@ -37,7 +33,6 @@ public class SubscriptionResponse {
 	private String customerEmail;
 	
 	@JsonProperty("cycled_at")
-	@JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ") @JsonSerialize(using = DateSerializer.class)
 	private Date cycledAt;
 	
 	@JsonProperty("credits_min")

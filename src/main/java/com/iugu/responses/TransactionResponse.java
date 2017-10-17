@@ -1,10 +1,7 @@
 package com.iugu.responses;
 
-import com.iugu.serializers.DateSerializer;
-import com.iugu.serializers.JsonFormat;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 
@@ -15,7 +12,6 @@ public class TransactionResponse {
     private String type;
     private String description;
     @JsonProperty("entry_date")
-    @JsonFormat("yyyy-MM-dd") @JsonSerialize(using = DateSerializer.class)
     private Date entryDate;
     private String reference;
     @JsonProperty("reference_type")

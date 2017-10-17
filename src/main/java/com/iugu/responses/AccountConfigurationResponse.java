@@ -1,10 +1,7 @@
 package com.iugu.responses;
 
-import com.iugu.serializers.DateSerializer;
-import com.iugu.serializers.JsonFormat;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 import java.util.List;
@@ -15,12 +12,8 @@ public class AccountConfigurationResponse {
     private String id;
     private String name;
     @JsonProperty("created_at")
-    @JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-    @JsonSerialize(using = DateSerializer.class)
     private Date createdAt;
     @JsonProperty("updated_at")
-    @JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-    @JsonSerialize(using = DateSerializer.class)
     private Date updatedAt;
     @JsonProperty("can_receive")
     private Boolean canReceive;

@@ -1,10 +1,7 @@
 package com.iugu.responses;
 
-import com.iugu.serializers.DateSerializer;
-import com.iugu.serializers.JsonFormat;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 import java.util.List;
@@ -16,10 +13,8 @@ public class TransactionsResponse {
     @JsonProperty("initial_balance")
     private InitialBalanceResponse initialBalance;
     @JsonProperty("initial_date")
-    @JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ") @JsonSerialize(using = DateSerializer.class)
     private Date initialDate;
     @JsonProperty("final_date")
-    @JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ") @JsonSerialize(using = DateSerializer.class)
     private Date finalDate;
     @JsonProperty("transactions_total")
     private Integer transactionsTotal;
