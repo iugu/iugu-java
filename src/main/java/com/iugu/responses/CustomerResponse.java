@@ -3,6 +3,7 @@ package com.iugu.responses;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Date;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -15,7 +16,13 @@ public class CustomerResponse {
 	private String name;
 	
 	private String notes;
-	
+
+	@JsonProperty("created_at")
+	private Date createdAt;
+
+	@JsonProperty("updated_at")
+	private Date updatedAt;
+
 	@JsonProperty("custom_variables")
 	private List<CustomVariableResponse> customVariables;
 
@@ -45,6 +52,22 @@ public class CustomerResponse {
 
 	public String getNotes() {
 		return notes;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 
 	public void setNotes(String notes) {
