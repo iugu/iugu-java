@@ -127,7 +127,7 @@ public class AccountService {
     }
 
     public AccountVerificationResponse requestVerification(RequestVerification requestVerification) throws IuguException {
-        Response response = this.iugu.getNewClient().target(REQUEST_VERIFICATION_URL).request().post(Entity.entity(requestVerification, MediaType.APPLICATION_JSON));
+        Response response = this.iugu.getNewClient().target(String.format(REQUEST_VERIFICATION_URL, requestVerification.getAccountId())).request().post(Entity.entity(requestVerification, MediaType.APPLICATION_JSON));
         int ResponseStatus = response.getStatus();
         String ResponseText = null;
 

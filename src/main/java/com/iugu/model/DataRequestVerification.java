@@ -16,11 +16,15 @@ public class DataRequestVerification {
     private String personType;
     @JsonProperty("automatic_transfer")
     private Boolean automaticTransfer;
+    private String cpf;
+    @JsonProperty("company_name")
+    private String companyName;
+    private String name;
     private String address;
     private String cep;
     private String city;
     private String state;
-    private String telphone;
+    private String telephone;
     @JsonProperty("resp_name")
     private String respName;
     @JsonProperty("resp_cpf")
@@ -73,6 +77,30 @@ public class DataRequestVerification {
         this.automaticTransfer = automaticTransfer;
     }
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -105,12 +133,12 @@ public class DataRequestVerification {
         this.state = state;
     }
 
-    public String getTelphone() {
-        return telphone;
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setTelphone(String telphone) {
-        this.telphone = telphone;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     public String getRespName() {
@@ -169,11 +197,14 @@ public class DataRequestVerification {
                 ", businessType='" + businessType + '\'' +
                 ", personType='" + personType + '\'' +
                 ", automaticTransfer='" + automaticTransfer + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", cep='" + cep + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
-                ", telphone='" + telphone + '\'' +
+                ", telephone='" + telephone + '\'' +
                 ", respName='" + respName + '\'' +
                 ", respCpf='" + respCpf + '\'' +
                 ", bank='" + bank + '\'' +

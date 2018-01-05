@@ -6,22 +6,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RequestVerification {
 
-    private String id;
+    @JsonProperty("account_id")
+    private String accountId;
     @JsonProperty("automatic_validation")
     private Boolean automaticValidation;
     private DataRequestVerification data;
 
-    public RequestVerification(String id, DataRequestVerification data) {
-        this.id = id;
+    public RequestVerification(String accountId, DataRequestVerification data) {
+        this.accountId = accountId;
         this.data = data;
     }
 
-    public String getId() {
-        return id;
+    public String getAccountId() {
+        return accountId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
     }
 
     public Boolean getAutomaticValidation() {
@@ -43,7 +44,7 @@ public class RequestVerification {
     @Override
     public String toString() {
         return "RequestVerification{" +
-                "id='" + id + '\'' +
+                "accountId='" + accountId + '\'' +
                 ", automaticValidation=" + automaticValidation +
                 ", data=" + data +
                 '}';
