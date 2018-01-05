@@ -8,11 +8,14 @@ import com.iugu.IuguConfiguration;
 import com.iugu.exceptions.IuguException;
 import com.iugu.model.Customer;
 import com.iugu.responses.CustomerResponse;
+import com.iugu.responses.CustomersResponse;
+import java.util.List;
 
 public class CustomerService {
 
 	private IuguConfiguration iugu;
-	private final String CREATE_URL = IuguConfiguration.url("/customers");
+	private final String FIND_ALL_URL = IuguConfiguration.url("/customers");
+        private final String CREATE_URL = IuguConfiguration.url("/customers");
 	private final String FIND_URL = IuguConfiguration.url("/customers/%s");
 	private final String CHANGE_URL = IuguConfiguration.url("/customers/%s");
 	private final String REMOVE_URL = IuguConfiguration.url("/customers/%s");
@@ -93,5 +96,20 @@ public class CustomerService {
 		throw new IuguException("Error removing customer!", ResponseStatus, ResponseText);
 	}
 
-	// TODO Listar os clientes
+	public CustomersResponse findAll() throws IuguException {
+		Response response = this.iugu.getNewClient().target(FIND_ALL_URL).request().get();
+		int ResponseStatus = response.getStatus();
+		String ResponseText = null;
+
+		if (ResponseStatus == 200)
+			return response.readEntity(CustomersResponse.class);
+
+		// Error Happened
+		if (response.hasEntity())
+			ResponseText = response.readEntity(String.class);
+
+		response.close();
+
+		throw new IuguException("Error finding customers!", ResponseStatus, ResponseText);
+	}
 }
