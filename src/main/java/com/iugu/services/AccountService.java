@@ -17,6 +17,7 @@ import java.util.Objects;
 public class AccountService {
 
     private IuguConfiguration iugu;
+    private final String FIND_URL = IuguConfiguration.url("/accounts/%s");
     private final String FIND_TRANSACTIONS_URL = IuguConfiguration.url("/accounts/financial");
     private final String FIND_INVOICES_URL = IuguConfiguration.url("/accounts/invoices");
     private final String REQUEST_VERIFICATION_URL = IuguConfiguration.url("/accounts/%s/request_verification");
@@ -25,6 +26,21 @@ public class AccountService {
 
     public AccountService(IuguConfiguration iuguConfiguration) {
         this.iugu = iuguConfiguration;
+    }
+
+    public AccountResponse find(String id) throws IuguException {
+        Response response = this.iugu.getNewClient().target(String.format(FIND_URL, id)).request().get();
+        int ResponseStatus = response.getStatus();
+        String ResponseText = null;
+        if (ResponseStatus == 200) {
+            return response.readEntity(AccountResponse.class);
+        }
+        // Error Happened
+        if (response.hasEntity()) {
+            ResponseText = response.readEntity(String.class);
+        }
+        response.close();
+        throw new IuguException("Error finding account with id: " + id, ResponseStatus, ResponseText);
     }
 
     public TransactionsResponse findTransactions(String year, String month, String day, Integer limit, Integer start) throws IuguException {
