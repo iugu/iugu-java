@@ -8,6 +8,7 @@ import com.iugu.IuguConfiguration;
 import com.iugu.exceptions.IuguException;
 import com.iugu.model.Plan;
 import com.iugu.responses.PlanResponse;
+import com.iugu.responses.PlansResponse;
 
 public class PlanService {
 
@@ -17,6 +18,7 @@ public class PlanService {
 	private final String FIND_BY_IDENTIFIER_URL = IuguConfiguration.url("/plans/identifier/%s");
 	private final String CHANGE_URL = IuguConfiguration.url("/plans/%s");
 	private final String REMOVE_URL = IuguConfiguration.url("/plans/%s");
+	private final String FIND_ALL_URL = IuguConfiguration.url("/plans");
 
 	public PlanService(IuguConfiguration iuguConfiguration) {
 		this.iugu = iuguConfiguration;
@@ -113,5 +115,20 @@ public class PlanService {
 		throw new IuguException("Error removing plan!", ResponseStatus, ResponseText);
 	}
 
-	// TODO Listar os planos
+	public PlansResponse findAll() throws IuguException {
+        Response response = this.iugu.getNewClient().target(FIND_ALL_URL).request().get();
+        int ResponseStatus = response.getStatus();
+        String ResponseText = null;
+
+        if (ResponseStatus == 200)
+            return response.readEntity(PlansResponse.class);
+
+        // Error Happened
+        if (response.hasEntity())
+            ResponseText = response.readEntity(String.class);
+
+        response.close();
+
+        throw new IuguException("Error finding plans!", ResponseStatus, ResponseText);
+    }
 }

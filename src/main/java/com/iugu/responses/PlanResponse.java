@@ -8,75 +8,73 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PlanResponse {
 
-	private String id;
-	
-	private String name;
-	
-	private String identifier;
-	
-	private String interval;
-	
-	@JsonProperty("interval_type")
-	private String intervalType;
-	
-	private List<PriceResponse> prices;
-	
-	private List<FeatureResponse> features;
+    private String id;
+    private String name;
+    private String identifier;
+    private String interval;
+    @JsonProperty("interval_type")
+    private String intervalType;
+    private List<PriceResponse> prices;
+    private List<FeatureResponse> features;
 
-	public String getId() {
-		return id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getIdentifier() {
-		return identifier;
-	}
+    public String getIdentifier() {
+        return identifier;
+    }
 
-	public void setIdentifier(String identifier) {
-		this.identifier = identifier;
-	}
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
 
-	public String getInterval() {
-		return interval;
-	}
+    public String getInterval() {
+        return interval;
+    }
 
-	public void setInterval(String interval) {
-		this.interval = interval;
-	}
+    public void setInterval(String interval) {
+        this.interval = interval;
+    }
 
-	public String getIntervalType() {
-		return intervalType;
-	}
+    public String getIntervalType() {
+        return intervalType;
+    }
 
-	public void setIntervalType(String intervalType) {
-		this.intervalType = intervalType;
-	}
+    public void setIntervalType(String intervalType) {
+        this.intervalType = intervalType;
+    }
 
-	public List<PriceResponse> getPrices() {
-		return prices;
-	}
+    public List<PriceResponse> getPrices() {
+        return prices;
+    }
 
-	public void setPrices(List<PriceResponse> prices) {
-		this.prices = prices;
-	}
+    public void setPrices(List<PriceResponse> prices) {
+        this.prices = prices;
+    }
 
-	public List<FeatureResponse> getFeatures() {
-		return features;
-	}
+    public List<FeatureResponse> getFeatures() {
+        return features;
+    }
 
-	public void setFeatures(List<FeatureResponse> features) {
-		this.features = features;
-	}
-	
+    public void setFeatures(List<FeatureResponse> features) {
+        this.features = features;
+    }
+
+    @Override
+    public String toString() {
+        return "PlanResponse{" + "id=" + id + ", name=" + name + ", identifier=" + identifier + ", interval=" + interval + ", intervalType=" + intervalType + ", prices=" + prices + ", features=" + features + '}';
+    }
 }
