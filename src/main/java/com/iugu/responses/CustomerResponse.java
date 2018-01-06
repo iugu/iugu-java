@@ -8,78 +8,75 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CustomerResponse {
-	
-	private String id;
-	
-	private String email;
-	
-	private String name;
-	
-	private String notes;
 
-	@JsonProperty("created_at")
-	private Date createdAt;
+    private String id;
+    private String email;
+    private String name;
+    private String notes;
+    @JsonProperty("created_at")
+    private Date createdAt;
+    @JsonProperty("updated_at")
+    private Date updatedAt;
+    @JsonProperty("custom_variables")
+    private List<CustomVariableResponse> customVariables;
+    public String getId() {
+        return id;
+    }
 
-	@JsonProperty("updated_at")
-	private Date updatedAt;
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	@JsonProperty("custom_variables")
-	private List<CustomVariableResponse> customVariables;
+    public String getEmail() {
+        return email;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getNotes() {
+        return notes;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public Date getCreatedAt() {
+        return createdAt;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
 
-	public String getNotes() {
-		return notes;
-	}
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
 
-	public Date getCreatedAt() {
-		return createdAt;
-	}
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
 
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
+    public List<CustomVariableResponse> getCustomVariables() {
+        return customVariables;
+    }
 
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
+    public void setCustomVariables(List<CustomVariableResponse> customVariables) {
+        this.customVariables = customVariables;
+    }
 
-	public void setNotes(String notes) {
-		this.notes = notes;
-	}
-
-	public List<CustomVariableResponse> getCustomVariables() {
-		return customVariables;
-	}
-
-	public void setCustomVariables(List<CustomVariableResponse> customVariables) {
-		this.customVariables = customVariables;
-	}
-
+    @Override
+    public String toString() {
+        return "CustomerResponse{" + "id=" + id + ", email=" + email + ", name=" + name + ", notes=" + notes + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", customVariables=" + customVariables + '}';
+    }
 }

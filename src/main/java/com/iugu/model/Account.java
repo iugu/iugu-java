@@ -145,7 +145,7 @@ public class Account {
     public void setEarlyPaymentDiscounts(List<EarlyPaymentDiscount> earlyPaymentDiscounts) {
         this.earlyPaymentDiscounts = earlyPaymentDiscounts;
     }
-
+    
     @Override
     public String toString() {
         return "Account{" +
