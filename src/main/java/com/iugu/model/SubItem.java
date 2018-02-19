@@ -4,48 +4,51 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class SubItem {
 
-	private String description;
+    private String description;
 
-	private Integer quantity;
+    private Integer quantity;
 
-	@JsonProperty("price_cents")
-	private Integer priceCents;
+    @JsonProperty("price_cents")
+    private Integer priceCents;
 
-	private boolean recurrent;
+    private boolean recurrent;
 
-	public SubItem(String description, Integer quantity, Integer priceCents) {
-		this.description = description;
-		this.quantity = quantity;
-		this.priceCents = priceCents;
-	}
+    public SubItem() {
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public SubItem(String description, Integer quantity, Integer priceCents) {
+        this.description = description;
+        this.quantity = quantity;
+        this.priceCents = priceCents;
+    }
 
-	public Integer getQuantity() {
-		return quantity;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public Integer getPriceCents() {
-		return priceCents;
-	}
+    public Integer getQuantity() {
+        return quantity;
+    }
 
-	public boolean isRecurrent() {
-		return recurrent;
-	}
+    public Integer getPriceCents() {
+        return priceCents;
+    }
 
-	public void setRecurrent(boolean recurrent) {
-		this.recurrent = recurrent;
-	}
+    public boolean isRecurrent() {
+        return recurrent;
+    }
 
-	@Override
-	public String toString() {
-		return "SubItem{" +
-				"description='" + description + '\'' +
-				", quantity=" + quantity +
-				", priceCents=" + priceCents +
-				", recurrent=" + recurrent +
-				'}';
-	}
+    public void setRecurrent(boolean recurrent) {
+        this.recurrent = recurrent;
+    }
+
+    @Override
+    public String toString() {
+        return "SubItem{"
+                + "description='" + description + '\''
+                + ", quantity=" + quantity
+                + ", priceCents=" + priceCents
+                + ", recurrent=" + recurrent
+                + '}';
+    }
 }

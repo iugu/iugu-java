@@ -10,6 +10,9 @@ import com.iugu.enums.PayableWith;
 
 public class Subscription {
 
+    public Subscription() {
+    }
+
     public Subscription(String customerId) {
         this.customerId = customerId;
 
