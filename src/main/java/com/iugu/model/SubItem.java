@@ -4,13 +4,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class SubItem {
 
+    private String id;
     private String description;
-
     private Integer quantity;
-
     @JsonProperty("price_cents")
     private Integer priceCents;
-
     private boolean recurrent;
 
     public SubItem() {
@@ -20,6 +18,14 @@ public class SubItem {
         this.description = description;
         this.quantity = quantity;
         this.priceCents = priceCents;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getDescription() {
