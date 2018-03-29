@@ -6,65 +6,69 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubItemResponse {
 
-	private String id;
-	
-	private String description;
-	
-	private Integer quantity;
-	
-	@JsonProperty("price_cents")
-	private Integer priceCents;
-	
-	private String price;
-	
-	private String total;
+    private String id;
+    private String description;
+    private Integer quantity;
+    @JsonProperty("price_cents")
+    private Integer priceCents;
+    private Boolean recurrent;
+    private String price;
+    private String total;
 
-	public String getId() {
-		return id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public Integer getQuantity() {
-		return quantity;
-	}
+    public Integer getQuantity() {
+        return quantity;
+    }
 
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
 
-	public Integer getPriceCents() {
-		return priceCents;
-	}
+    public Integer getPriceCents() {
+        return priceCents;
+    }
 
-	public void setPriceCents(Integer priceCents) {
-		this.priceCents = priceCents;
-	}
+    public void setPriceCents(Integer priceCents) {
+        this.priceCents = priceCents;
+    }
 
-	public String getPrice() {
-		return price;
-	}
+    public Boolean getRecurrent() {
+        return recurrent;
+    }
 
-	public void setPrice(String price) {
-		this.price = price;
-	}
+    public void setRecurrent(Boolean recurrent) {
+        this.recurrent = recurrent;
+    }
 
-	public String getTotal() {
-		return total;
-	}
+    public String getPrice() {
+        return price;
+    }
 
-	public void setTotal(String total) {
-		this.total = total;
-	}
-	
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
+
 }
