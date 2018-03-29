@@ -10,6 +10,7 @@ public class SubItem {
     @JsonProperty("price_cents")
     private Integer priceCents;
     private boolean recurrent;
+    @JsonProperty("_destroy")
     private boolean _destroy;
 
     public SubItem() {
