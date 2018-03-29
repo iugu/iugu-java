@@ -10,6 +10,7 @@ public class SubItem {
     @JsonProperty("price_cents")
     private Integer priceCents;
     private boolean recurrent;
+    private boolean _destroy;
 
     public SubItem() {
     }
@@ -46,6 +47,14 @@ public class SubItem {
 
     public void setRecurrent(boolean recurrent) {
         this.recurrent = recurrent;
+    }
+
+    public boolean isDestroy() {
+        return _destroy;
+    }
+
+    public void setDestroy(boolean _destroy) {
+        this._destroy = _destroy;
     }
 
     @Override
