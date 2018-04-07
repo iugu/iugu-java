@@ -16,6 +16,8 @@ public class PlanResponse {
     private String intervalType;
     private List<PriceResponse> prices;
     private List<FeatureResponse> features;
+    @JsonProperty("payable_with")
+    private String payableWith;
 
     public String getId() {
         return id;
@@ -73,8 +75,16 @@ public class PlanResponse {
         this.features = features;
     }
 
+    public String getPayableWith() {
+        return payableWith;
+    }
+
+    public void setPayableWith(String payableWith) {
+        this.payableWith = payableWith;
+    }
+
     @Override
     public String toString() {
-        return "PlanResponse{" + "id=" + id + ", name=" + name + ", identifier=" + identifier + ", interval=" + interval + ", intervalType=" + intervalType + ", prices=" + prices + ", features=" + features + '}';
+        return "PlanResponse{" + "id=" + id + ", name=" + name + ", identifier=" + identifier + ", interval=" + interval + ", intervalType=" + intervalType + ", prices=" + prices + ", features=" + features + ", payableWith=" + payableWith + '}';
     }
 }
