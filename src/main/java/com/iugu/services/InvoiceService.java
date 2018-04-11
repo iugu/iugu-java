@@ -65,10 +65,8 @@ public class InvoiceService {
     }
 
     public InvoiceResponse duplicate(String id, LocalDate date) throws IuguException {
-        SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
         Form form = new Form();
-
-        form.param("due_date", sm.format(date));
+        form.param("due_date", date.toString());
 
         Response response = this.iugu.getNewClient().target(String.format(DUPLICATE_URL, id)).request().post(Entity.entity(form, MediaType.APPLICATION_FORM_URLENCODED_TYPE));
 
@@ -88,10 +86,8 @@ public class InvoiceService {
     }
 
     public InvoiceResponse duplicate(String id, LocalDate date, boolean ignoreCanceledEmail, boolean currentFinesOption) throws IuguException {
-        SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
         Form form = new Form();
-
-        form.param("due_date", sm.format(date));
+        form.param("due_date", date.toString());
         form.param("ignore_canceled_email", ConvertionUtils.booleanToString(ignoreCanceledEmail));
         form.param("current_fines_option", ConvertionUtils.booleanToString(currentFinesOption));
 
