@@ -89,7 +89,7 @@ public class InvoiceResponse implements Serializable {
     private List<LogResponse> logs;
 
     @JsonProperty("payment_method")
-    private Integer paymentMethod;
+    private String paymentMethod;
 
     public String getId() {
         return id;
@@ -323,11 +323,11 @@ public class InvoiceResponse implements Serializable {
         this.total = total;
     }
 
-    public Integer getPaymentMethod() {
+    public String getPaymentMethod() {
         return paymentMethod;
     }
 
-    public void setPaymentMethod(Integer paymentMethod) {
+    public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 
