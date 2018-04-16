@@ -16,6 +16,9 @@ public class Invoice implements Serializable {
 
     private static final long serialVersionUID = 1719931730355279382L;
 
+    public Invoice() {
+    }
+
     public Invoice(String email, Date dueDate, Item... items) {
         this.email = email;
         this.dueDate = dueDate;
@@ -28,7 +31,7 @@ public class Invoice implements Serializable {
     private String ccEmails;
 
     @JsonProperty("due_date")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date dueDate;
 
     private List<Item> items = new ArrayList<>();
