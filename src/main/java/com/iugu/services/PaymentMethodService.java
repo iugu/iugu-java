@@ -4,8 +4,9 @@ import com.iugu.IuguConfiguration;
 import com.iugu.exceptions.IuguException;
 import com.iugu.model.PaymentMethod;
 import com.iugu.responses.PaymentMethodResponse;
-
+import java.util.List;
 import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -75,4 +76,22 @@ public class PaymentMethodService {
 		throw new IuguException("Error removing payment with id: " + id, ResponseStatus, ResponseText);
 	}
 
+        public List<PaymentMethodResponse> findAll(String customerId) throws IuguException {
+		Response response = this.iugu.getNewClient().target(String.format(DEFAULT_PAYMENT_URL, customerId)).request().get();
+
+		int ResponseStatus = response.getStatus();
+		String ResponseText = null;
+
+                if (ResponseStatus == 200)
+                    return response.readEntity(new GenericType<List<PaymentMethodResponse>>(){});
+
+		// Error Happened
+		if (response.hasEntity())
+			ResponseText = response.readEntity(String.class);
+
+		response.close();
+
+		throw new IuguException("Error finding payments methods of customer with id: " + customerId, ResponseStatus, ResponseText);
+	}
+        
 }
