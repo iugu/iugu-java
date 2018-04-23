@@ -6,78 +6,81 @@ import com.iugu.enums.ItemType;
 
 public class PaymentMethod {
 
-	public PaymentMethod(String description, String token, Boolean isDefault) {
-		this.description = description;
-		this.token = token;
-		this.isDefault=isDefault;
-	}
+    public PaymentMethod() {
+    }
 
-	public PaymentMethod(String description, Data data, Boolean isDefault) {
-		this.description = description;
-		this.data = data;
-		this.isDefault = isDefault;
-	}
+    public PaymentMethod(String description, String token, Boolean isDefault) {
+        this.description = description;
+        this.token = token;
+        this.isDefault = isDefault;
+    }
 
-	private String description;
+    public PaymentMethod(String description, Data data, Boolean isDefault) {
+        this.description = description;
+        this.data = data;
+        this.isDefault = isDefault;
+    }
 
-	private Data data;
+    private String description;
 
-	@JsonProperty("item_type")
-	private ItemType itemType;
+    private Data data;
 
-	private String token;
+    @JsonProperty("item_type")
+    private ItemType itemType;
 
-	@JsonProperty("set_as_default")
-	private Boolean isDefault;
+    private String token;
 
-	public String getDescription() {
-		return description;
-	}
+    @JsonProperty("set_as_default")
+    private Boolean isDefault;
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public Data getData() {
-		return data;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setData(Data data) {
-		this.data = data;
-	}
+    public Data getData() {
+        return data;
+    }
 
-	public ItemType getItemType() {
-		return itemType;
-	}
+    public void setData(Data data) {
+        this.data = data;
+    }
 
-	public void setItemType(ItemType itemType) {
-		this.itemType = itemType;
-	}
+    public ItemType getItemType() {
+        return itemType;
+    }
 
-	public String getToken() {
-		return token;
-	}
+    public void setItemType(ItemType itemType) {
+        this.itemType = itemType;
+    }
 
-	public void setToken(String token) {
-		this.token = token;
-	}
+    public String getToken() {
+        return token;
+    }
 
-	public Boolean getDefault() {
-		return isDefault;
-	}
+    public void setToken(String token) {
+        this.token = token;
+    }
 
-	public void setDefault(Boolean aDefault) {
-		isDefault = aDefault;
-	}
+    public Boolean getDefault() {
+        return isDefault;
+    }
 
-	@Override
-	public String toString() {
-		return "PaymentMethod{" +
-				"description='" + description + '\'' +
-				", data=" + data +
-				", itemType=" + itemType +
-				", token='" + token + '\'' +
-				", isDefault=" + isDefault +
-				'}';
-	}
+    public void setDefault(Boolean aDefault) {
+        isDefault = aDefault;
+    }
+
+    @Override
+    public String toString() {
+        return "PaymentMethod{"
+                + "description='" + description + '\''
+                + ", data=" + data
+                + ", itemType=" + itemType
+                + ", token='" + token + '\''
+                + ", isDefault=" + isDefault
+                + '}';
+    }
 }

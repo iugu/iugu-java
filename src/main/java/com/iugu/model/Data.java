@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Data {
 
+    public Data() {
+    }
+
     public Data(String number, String verificationValue, String firstName, String lastName, String month, String year) {
         this.number = number;
         this.verificationValue = verificationValue;
