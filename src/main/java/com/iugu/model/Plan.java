@@ -10,83 +10,86 @@ import com.iugu.enums.PayableWith;
 
 public class Plan {
 
-	private String name;
+    private String name;
 
-	private String identifier;
+    private String identifier;
 
-	private String interval;
+    private String interval;
 
-	@JsonProperty("interval_type")
-	private IntervalType intervalType;
+    @JsonProperty("interval_type")
+    private IntervalType intervalType;
 
-	private Currency currency;
+    private Currency currency;
 
-	@JsonProperty("value_cents")
-	private int valueCents;
+    @JsonProperty("value_cents")
+    private int valueCents;
 
-	@JsonProperty("payable_with")
-	private PayableWith payableWith;
+    @JsonProperty("payable_with")
+    private PayableWith payableWith;
 
-	private List<Price> prices;
+    private List<Price> prices;
 
-	private List<Feature> features;
+    private List<Feature> features;
 
-	public Plan(String name, String identifier, String interval, IntervalType intervalType, Currency currency,
-			int valueCents) {
-		this.name = name;
-		this.identifier = identifier;
-		this.interval = interval;
-		this.intervalType = intervalType;
-		this.currency = currency;
-		this.valueCents = valueCents;
-	}
+    public Plan() {
+    }
 
-	public String getName() {
-		return name;
-	}
+    public Plan(String name, String identifier, String interval, IntervalType intervalType, Currency currency,
+            int valueCents) {
+        this.name = name;
+        this.identifier = identifier;
+        this.interval = interval;
+        this.intervalType = intervalType;
+        this.currency = currency;
+        this.valueCents = valueCents;
+    }
 
-	public String getIdentifier() {
-		return identifier;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getInterval() {
-		return interval;
-	}
+    public String getIdentifier() {
+        return identifier;
+    }
 
-	public IntervalType getIntervalType() {
-		return intervalType;
-	}
+    public String getInterval() {
+        return interval;
+    }
 
-	public Currency getCurrency() {
-		return currency;
-	}
+    public IntervalType getIntervalType() {
+        return intervalType;
+    }
 
-	public int getValueCents() {
-		return valueCents;
-	}
+    public Currency getCurrency() {
+        return currency;
+    }
 
-	public PayableWith getPayableWith() {
-		return payableWith;
-	}
+    public int getValueCents() {
+        return valueCents;
+    }
 
-	public void setPayableWith(PayableWith payableWith) {
-		this.payableWith = payableWith;
-	}
+    public PayableWith getPayableWith() {
+        return payableWith;
+    }
 
-	public List<Price> getPrices() {
-		return prices;
-	}
+    public void setPayableWith(PayableWith payableWith) {
+        this.payableWith = payableWith;
+    }
 
-	public void setPrices(List<Price> prices) {
-		this.prices = prices;
-	}
+    public List<Price> getPrices() {
+        return prices;
+    }
 
-	public List<Feature> getFeatures() {
-		return features;
-	}
+    public void setPrices(List<Price> prices) {
+        this.prices = prices;
+    }
 
-	public void setFeatures(List<Feature> features) {
-		this.features = features;
-	}
+    public List<Feature> getFeatures() {
+        return features;
+    }
+
+    public void setFeatures(List<Feature> features) {
+        this.features = features;
+    }
 
 }
