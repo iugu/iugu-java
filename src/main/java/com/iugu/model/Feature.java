@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Feature {
 
+    private String id;
     private String name;
     private String identifier;
     private int value;
@@ -17,6 +18,14 @@ public class Feature {
         this.name = name;
         this.identifier = identifier;
         this.value = value;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
