@@ -18,7 +18,10 @@ public class CustomerResponse {
     @JsonProperty("updated_at")
     private Date updatedAt;
     @JsonProperty("custom_variables")
-    private List<CustomVariableResponse> customVariables;
+    private List<CustomVariableResponse> customVariables;    
+    @JsonProperty("cpf_cnpj")
+    private String cpfCnpj;
+    
     public String getId() {
         return id;
     }
@@ -75,8 +78,17 @@ public class CustomerResponse {
         this.customVariables = customVariables;
     }
 
+    public String getCpfCnpj() {
+        return cpfCnpj;
+    }
+
+    public void setCpfCnpj(String cpfCnpj) {
+        this.cpfCnpj = cpfCnpj;
+    }
+
     @Override
     public String toString() {
-        return "CustomerResponse{" + "id=" + id + ", email=" + email + ", name=" + name + ", notes=" + notes + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", customVariables=" + customVariables + '}';
+        return "CustomerResponse{" + "id=" + id + ", email=" + email + ", name=" + name + ", notes=" + notes + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", customVariables=" + customVariables + ", cpfCnpj=" + cpfCnpj + '}';
     }
+    
 }
