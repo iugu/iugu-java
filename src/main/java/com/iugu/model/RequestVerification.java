@@ -12,6 +12,9 @@ public class RequestVerification {
     private Boolean automaticValidation;
     private DataRequestVerification data;
 
+    public RequestVerification() {
+    }
+
     public RequestVerification(String accountId, DataRequestVerification data) {
         this.accountId = accountId;
         this.data = data;
