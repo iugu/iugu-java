@@ -17,6 +17,7 @@ public class DataRequestVerification {
     @JsonProperty("automatic_transfer")
     private Boolean automaticTransfer;
     private String cpf;
+    private String cnpj;
     @JsonProperty("company_name")
     private String companyName;
     private String name;
@@ -83,6 +84,14 @@ public class DataRequestVerification {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     public String getCompanyName() {
