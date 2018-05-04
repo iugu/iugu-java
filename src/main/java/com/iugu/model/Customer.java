@@ -9,6 +9,27 @@ public class Customer implements Serializable {
 
     private static final long serialVersionUID = 3266886175287194L;
 
+    private String email;
+    private String name;
+    private String notes;
+    @JsonProperty("cpf_cnpj")
+    private String cpfCnpj;
+    @JsonProperty("cc_emails")
+    private String ccEmails;
+    @JsonProperty("zip_code")
+    private String zipCode;
+    private Integer number;
+    private String street;
+    private String city;
+    private String state;
+    private String district;
+    private String complement;
+    @JsonProperty("custom_variables")
+    private List<CustomVariable> customVariables;
+    private Integer phone;
+    @JsonProperty("phone_prefix")
+    private Integer phonePrefix;
+
     public Customer() {
     }
 
@@ -16,36 +37,6 @@ public class Customer implements Serializable {
         this.email = email;
         this.name = name;
     }
-
-    private String email;
-
-    private String name;
-
-    private String notes;
-
-    @JsonProperty("cpf_cnpj")
-    private String cpfCnpj;
-
-    @JsonProperty("cc_emails")
-    private String ccEmails;
-
-    @JsonProperty("zip_code")
-    private String zipCode;
-
-    private Integer number;
-
-    private String street;
-
-    private String city;
-
-    private String state;
-
-    private String district;
-
-    private String complement;
-
-    @JsonProperty("custom_variables")
-    private List<CustomVariable> customVariables;
 
     public String getEmail() {
         return email;
@@ -149,6 +140,22 @@ public class Customer implements Serializable {
 
     public void setCustomVariables(List<CustomVariable> customVariables) {
         this.customVariables = customVariables;
+    }
+
+    public Integer getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Integer phone) {
+        this.phone = phone;
+    }
+
+    public Integer getPhonePrefix() {
+        return phonePrefix;
+    }
+
+    public void setPhonePrefix(Integer phonePrefix) {
+        this.phonePrefix = phonePrefix;
     }
 
     public static long getSerialversionuid() {
