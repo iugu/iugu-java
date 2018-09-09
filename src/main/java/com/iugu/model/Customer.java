@@ -1,6 +1,7 @@
 package com.iugu.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Customer implements Serializable {
@@ -135,11 +136,10 @@ public class Customer implements Serializable {
     }
 
     public List<CustomVariable> getCustomVariables() {
+        if (customVariables == null) {
+            customVariables = new ArrayList<>();
+        }
         return customVariables;
-    }
-
-    public void setCustomVariables(List<CustomVariable> customVariables) {
-        this.customVariables = customVariables;
     }
 
     public static long getSerialversionuid() {
