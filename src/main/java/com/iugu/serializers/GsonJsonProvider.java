@@ -30,8 +30,8 @@ public class GsonJsonProvider implements MessageBodyReader<Object>, MessageBodyW
     private Gson getGson() {
         if (gson == null) {
             final GsonBuilder gsonBuilder = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-                    .registerTypeAdapter(LocalDateTime.class, new LocalDateAdapter())
-                    .registerTypeAdapter(LocalDate.class, new LocalDateTimeAdapter());
+                    .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+                    .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter());
 
             gson = gsonBuilder.create();
         }
