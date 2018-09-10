@@ -2,34 +2,34 @@ package com.iugu.responses;
 
 public class VariableResponse {
 
-	private String id;
-	
-	private String variable;
-	
-	private String value;
+    private String id;
 
-	public String getId() {
-		return id;
-	}
+    private String variable;
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    private String value;
 
-	public String getVariable() {
-		return variable;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public void setVariable(String variable) {
-		this.variable = variable;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getValue() {
-		return value;
-	}
+    public String getVariable() {
+        return variable;
+    }
 
-	public void setValue(String value) {
-		this.value = value;
-	}
-	
+    public void setVariable(String variable) {
+        this.variable = variable;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
 }

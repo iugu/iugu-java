@@ -3,16 +3,16 @@ package com.iugu.model;
 import com.iugu.enums.PayableWith;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 public class Invoice implements Serializable {
 
     private static final long serialVersionUID = 1719931730355279382L;
 
-    public Invoice(String email, Date dueDate, Item... items) {
+    public Invoice(String email, LocalDate dueDate, Item... items) {
         this.email = email;
         this.dueDate = dueDate;
         this.items.addAll(Arrays.asList(items)); // FIXME Tratar null pointer
@@ -22,7 +22,7 @@ public class Invoice implements Serializable {
 
     private String ccEmails;
 
-    private Date dueDate;
+    private LocalDate dueDate;
 
     private List<Item> items = new ArrayList<>();
 
@@ -78,11 +78,11 @@ public class Invoice implements Serializable {
         this.ccEmails = ccEmails;
     }
 
-    public Date getDueDate() {
+    public LocalDate getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Date dueDate) {
+    public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
 

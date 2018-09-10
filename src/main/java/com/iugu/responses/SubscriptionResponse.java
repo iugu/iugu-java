@@ -2,6 +2,7 @@ package com.iugu.responses;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -18,13 +19,13 @@ public class SubscriptionResponse {
     private String currency;
 
     //TODO Features
-    private Date expiresAt;
+    private LocalDate expiresAt;
 
     private String customerName;
 
     private String customerEmail;
 
-    private Date cycledAt;
+    private LocalDate cycledAt;
 
     private Integer creditsMin;
 
@@ -98,11 +99,11 @@ public class SubscriptionResponse {
         this.currency = currency;
     }
 
-    public Date getExpiresAt() {
+    public LocalDate getExpiresAt() {
         return expiresAt;
     }
 
-    public void setExpiresAt(Date expiresAt) {
+    public void setExpiresAt(LocalDate expiresAt) {
         this.expiresAt = expiresAt;
     }
 
@@ -122,11 +123,11 @@ public class SubscriptionResponse {
         this.customerEmail = customerEmail;
     }
 
-    public Date getCycledAt() {
+    public LocalDate getCycledAt() {
         return cycledAt;
     }
 
-    public void setCycledAt(Date cycledAt) {
+    public void setCycledAt(LocalDate cycledAt) {
         this.cycledAt = cycledAt;
     }
 

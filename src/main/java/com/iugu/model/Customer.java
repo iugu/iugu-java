@@ -37,6 +37,10 @@ public class Customer implements Serializable {
 
     private String complement;
 
+    private Integer phone;
+
+    private Integer phonePrefix;
+
     private List<CustomVariable> customVariables;
 
     public String getEmail() {
@@ -133,6 +137,22 @@ public class Customer implements Serializable {
 
     public void setComplement(String complement) {
         this.complement = complement;
+    }
+
+    public Integer getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Integer phone) {
+        this.phone = phone;
+    }
+
+    public Integer getPhonePrefix() {
+        return phonePrefix;
+    }
+
+    public void setPhonePrefix(Integer phonePrefix) {
+        this.phonePrefix = phonePrefix;
     }
 
     public List<CustomVariable> getCustomVariables() {

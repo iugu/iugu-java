@@ -1,78 +1,78 @@
 package com.iugu.responses;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class ItemResponse {
 
-	private String id;
-	
-	private String description;
-	
-	private Integer quantity;
-	
-	private Integer priceCents;
-	
-	private String createdAt;
-	
-	private Date updatedAt;
-	
-	private String price;
+    private String id;
 
-	public String getId() {
-		return id;
-	}
+    private String description;
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    private Integer quantity;
 
-	public String getDescription() {
-		return description;
-	}
+    private Integer priceCents;
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    private LocalDateTime createdAt;
 
-	public Integer getQuantity() {
-		return quantity;
-	}
+    private LocalDateTime updatedAt;
 
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
+    private String price;
 
-	public Integer getPriceCents() {
-		return priceCents;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public void setPriceCents(Integer priceCents) {
-		this.priceCents = priceCents;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getCreatedAt() {
-		return createdAt;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setCreatedAt(String createdAt) {
-		this.createdAt = createdAt;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
+    public Integer getQuantity() {
+        return quantity;
+    }
 
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
 
-	public String getPrice() {
-		return price;
-	}
+    public Integer getPriceCents() {
+        return priceCents;
+    }
 
-	public void setPrice(String price) {
-		this.price = price;
-	}
-	
-	
+    public void setPriceCents(Integer priceCents) {
+        this.priceCents = priceCents;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+
 }

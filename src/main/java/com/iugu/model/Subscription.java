@@ -3,7 +3,7 @@ package com.iugu.model;
 import com.google.gson.annotations.SerializedName;
 import com.iugu.enums.PayableWith;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public class Subscription {
@@ -22,7 +22,7 @@ public class Subscription {
 
     public String planIdentifier;
 
-    public Date expiresAt;
+    public LocalDate expiresAt;
 
     public String onlyOnChargeSuccess;
 
@@ -49,11 +49,11 @@ public class Subscription {
         this.planIdentifier = planIdentifier;
     }
 
-    public Date getExpiresAt() {
+    public LocalDate getExpiresAt() {
         return expiresAt;
     }
 
-    public void setExpiresAt(Date expiresAt) {
+    public void setExpiresAt(LocalDate expiresAt) {
         this.expiresAt = expiresAt;
     }
 
