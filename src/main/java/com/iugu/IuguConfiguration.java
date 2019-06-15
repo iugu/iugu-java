@@ -25,7 +25,7 @@ public class IuguConfiguration {
         ResteasyClientBuilder builder = new ResteasyClientBuilder()
                 .register(new GsonJsonProvider())
                 .register(new Authenticator(tokenId, ""));
-        if (proxyHost != null && proxyPort > 0) {
+        if (proxyHost != null && proxyHost.trim().length() > 0) {
             builder.defaultProxy(proxyHost, proxyPort);
         }
         return builder.build();
@@ -34,7 +34,7 @@ public class IuguConfiguration {
     public ResteasyClient getNewClientNotAuth() {
         ResteasyClientBuilder builder = new ResteasyClientBuilder()
                 .register(new GsonJsonProvider());
-        if (proxyHost != null && proxyPort > 0) {
+        if (proxyHost != null && proxyHost.trim().length() > 0) {
             builder.defaultProxy(proxyHost, proxyPort);
         }
         return builder.build();
