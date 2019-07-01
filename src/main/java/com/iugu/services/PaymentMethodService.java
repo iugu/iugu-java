@@ -21,7 +21,7 @@ public class PaymentMethodService {
     }
 
     public PaymentMethodResponse setDefault(String customerId, PaymentMethod paymentMethod) throws IuguException {
-        Response response = this.iugu.getNewClient().target(String.format(REMOVE_DEFAULT_PAYMENT_URL, customerId)).request().post(Entity.entity(paymentMethod, MediaType.APPLICATION_JSON));
+        Response response = this.iugu.getNewClient().target(String.format(DEFAULT_PAYMENT_URL, customerId)).request().post(Entity.entity(paymentMethod, MediaType.APPLICATION_JSON));
 
         int ResponseStatus = response.getStatus();
         String ResponseText = null;
