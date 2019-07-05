@@ -75,7 +75,7 @@ public class Subscription {
         return skipCharge != null && skipCharge.equalsIgnoreCase("true");
     }
 
-    public void isSkipCharge(boolean skipCharge) {
+    public void setSkipCharge(boolean skipCharge) {
         this.skipCharge = (skipCharge ? "true" : "false");
     }
 
