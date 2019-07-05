@@ -8,10 +8,14 @@ import java.util.List;
 
 public class Subscription {
 
-    public Subscription(String customerId) {
-        this.customerId = customerId;
+    public Subscription() {
         setCreditsBased(false);
         setOnlyOnChargeSuccess(true);
+    }
+
+    public Subscription(String customerId) {
+        this();
+        this.customerId = customerId;
     }
 
     private String customerId;
