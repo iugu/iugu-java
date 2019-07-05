@@ -20,26 +20,28 @@ public class Subscription {
         return customerId;
     }
 
-    public String planIdentifier;
+    private String planIdentifier;
 
-    public LocalDate expiresAt;
+    private LocalDate expiresAt;
 
-    public String onlyOnChargeSuccess;
+    private String onlyOnChargeSuccess;
 
-    public PayableWith payableWith;
+    private PayableWith payableWith;
 
-    public String creditsBased;
+    private String creditsBased;
 
-    public Integer priceCents;
+    private Integer priceCents;
 
-    public Integer creditsCycle;
+    private Integer creditsCycle;
 
-    public Integer creditsMin;
+    private Integer creditsMin;
 
-    public List<CustomVariable> customVariables;
+    private String skipCharge;
+
+    private List<CustomVariable> customVariables;
 
     @SerializedName("subitems")
-    public List<SubItem> subItems;
+    private List<SubItem> subItems;
 
     public String getPlanIdentifier() {
         return planIdentifier;
@@ -63,6 +65,14 @@ public class Subscription {
 
     public void setOnlyOnChargeSuccess(boolean onlyOnChargeSuccess) {
         this.onlyOnChargeSuccess = (onlyOnChargeSuccess ? "true" : "false");
+    }
+
+    public boolean isSkipCharge() {
+        return skipCharge != null && skipCharge.equalsIgnoreCase("true");
+    }
+
+    public void isSkipCharge(boolean skipCharge) {
+        this.skipCharge = (skipCharge ? "true" : "false");
     }
 
     public PayableWith getPayableWith() {
