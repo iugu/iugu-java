@@ -2,13 +2,21 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.iugu</groupId>
+	<groupId>com.tartigrado</groupId>
 	<artifactId>iugu-java</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.81</version>
 	<packaging>jar</packaging>
 
 	<name>iugu-java</name>
 	<url>http://maven.apache.org</url>
+
+        <repositories>
+            <repository>
+                <id>tartigrado</id>
+                <name>Tartigrado Repository</name>
+                <url>http://maven2.tartigrado.com/</url>
+            </repository>
+        </repositories>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -34,5 +42,55 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+        
+        <distributionManagement>
+            <repository>
+                <id>tartigrado-ftp</id>
+                <url>ftp://ftp.tartigrado.com/www/maven2</url>
+            </repository>
+        </distributionManagement>
+        
+        <build>
+             <resources>
+            <resource>
+                <filtering>false</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <filtering>false</filtering>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**</include>
+                </includes>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+        </resources>
 
+        <testResources>
+            <testResource>
+                <filtering>false</filtering>
+                <directory>src/test/resources</directory>
+            </testResource>
+            <testResource>
+                <filtering>false</filtering>
+                <directory>src/test/java</directory>
+                <includes>
+                    <include>**</include>
+                </includes>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </testResource>
+        </testResources>
+            
+            <extensions>
+                <extension>
+                    <groupId>org.apache.maven.wagon</groupId>
+                    <artifactId>wagon-ftp</artifactId>
+                    <version>2.8</version>
+                </extension>
+            </extensions>
+        </build>
 </project>
