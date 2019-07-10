@@ -31,8 +31,8 @@ public class Subscription {
 	@JsonFormat("yyyy-MM-dd'T'HH:mm:ssZ") @JsonSerialize(using = DateSerializer.class)
 	public Date expiresAt;
 
-	@JsonProperty("only_on_charge_sucess")
-	public String onlyOnChargeSucess;
+	@JsonProperty("only_on_charge_success")
+	public String onlyOnChargeSuccess;
 
 	@JsonProperty("payable_with")
 	public PayableWith payableWith;
