@@ -6,7 +6,7 @@ import java.io.UnsupportedEncodingException;
 import javax.ws.rs.client.ClientRequestContext;
 import javax.ws.rs.client.ClientRequestFilter;
 import javax.ws.rs.core.MultivaluedMap;
-import javax.xml.bind.DatatypeConverter;
+import java.util.Base64;
 
 public class Authenticator implements ClientRequestFilter {
 
@@ -27,7 +27,7 @@ public class Authenticator implements ClientRequestFilter {
     private String getBasicAuthentication() {
         String token = this.user + ":" + this.password;
         try {
-            return "Basic " + DatatypeConverter.printBase64Binary(token.getBytes("UTF-8"));
+            return "Basic " + Base64.getEncoder().encodeToString(token.getBytes("UTF-8"));
         } catch (UnsupportedEncodingException ex) {
             throw new IllegalStateException("Cannot encode with UTF-8", ex);
         }
