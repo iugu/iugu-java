@@ -4,7 +4,6 @@ package com.iugu.serializers;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.apache.commons.io.IOUtils;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
@@ -16,14 +15,14 @@ import javax.ws.rs.ext.MessageBodyWriter;
 import java.io.*;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.stream.Collectors;
 
 @Consumes({MediaType.APPLICATION_JSON, "text/json"})
 @Produces({MediaType.APPLICATION_JSON, "text/json"})
 public class GsonJsonProvider implements MessageBodyReader<Object>, MessageBodyWriter<Object> {
-
-    private static final String UTF_8 = "UTF-8";
 
     private Gson gson;
 
@@ -47,16 +46,17 @@ public class GsonJsonProvider implements MessageBodyReader<Object>, MessageBodyW
     @Override
     public Object readFrom(Class<Object> type, Type genericType, Annotation[] annotations, MediaType mediaType,
                            MultivaluedMap<String, String> httpHeaders, InputStream entityStream) throws IOException {
-        try (InputStreamReader streamReader = new InputStreamReader(entityStream, UTF_8)) {
+        try (InputStreamReader streamReader = new InputStreamReader(entityStream, StandardCharsets.UTF_8)) {
             Type jsonType;
             if (type.equals(genericType)) {
                 jsonType = type;
             } else {
                 jsonType = genericType;
             }
-            String json = IOUtils.toString(streamReader);
-            System.out.println(json);
-            return getGson().fromJson(json, jsonType);
+            try (BufferedReader br = new BufferedReader(streamReader)) {
+                String json = br.lines().collect(Collectors.joining(System.lineSeparator()));
+                return getGson().fromJson(json, jsonType);
+            }
         }
     }
 
@@ -73,7 +73,7 @@ public class GsonJsonProvider implements MessageBodyReader<Object>, MessageBodyW
     @Override
     public void writeTo(Object object, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType,
                         MultivaluedMap<String, Object> httpHeaders, OutputStream entityStream) throws IOException, WebApplicationException {
-        try (OutputStreamWriter writer = new OutputStreamWriter(entityStream, UTF_8)) {
+        try (OutputStreamWriter writer = new OutputStreamWriter(entityStream, StandardCharsets.UTF_8)) {
             Type jsonType;
             if (type.equals(genericType)) {
                 jsonType = type;
@@ -81,7 +81,6 @@ public class GsonJsonProvider implements MessageBodyReader<Object>, MessageBodyW
                 jsonType = genericType;
             }
             Gson gson = getGson();
-            System.out.println(gson.toJson(object, jsonType));
             gson.toJson(object, jsonType, writer);
         }
     }
