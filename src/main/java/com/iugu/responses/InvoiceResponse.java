@@ -28,6 +28,8 @@ public class InvoiceResponse implements Serializable {
 
     private Integer taxCents;
 
+    private Integer commissionCents;
+
     private LocalDateTime updatedAt;
 
     private Integer totalCents;
@@ -298,4 +300,11 @@ public class InvoiceResponse implements Serializable {
         this.total = total;
     }
 
+    public Integer getCommissionCents() {
+        return commissionCents;
+    }
+
+    public void setCommissionCents(Integer commissionCents) {
+        this.commissionCents = commissionCents;
+    }
 }
