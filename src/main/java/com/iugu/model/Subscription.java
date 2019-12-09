@@ -54,6 +54,9 @@ public class Subscription {
 
 	@JsonProperty("subitems")
 	public List<SubItem> subItems;
+	
+	@JsonProperty("only_on_charge_sucess")
+	public String onlyOnChargeSucess;
 
 	public String getPlanIdentifier() {
 		return planIdentifier;
