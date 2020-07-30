@@ -1,6 +1,5 @@
 package com.iugu.serializers;
 
-
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -29,6 +28,7 @@ public class GsonJsonProvider implements MessageBodyReader<Object>, MessageBodyW
     private Gson getGson() {
         if (gson == null) {
             final GsonBuilder gsonBuilder = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                    .registerTypeAdapter(ZonedDateTimeAdapter.class, new ZonedDateTimeAdapter())
                     .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
                     .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter());
 
