@@ -17,6 +17,6 @@ public class ZonedDateTimeAdapter implements JsonSerializer<ZonedDateTime>, Json
 
     @Override
     public JsonElement serialize(ZonedDateTime src, Type typeOfSrc, JsonSerializationContext context) {
-        return src.toString();
+        return new JsonPrimitive(src.toString());
     }
 }
