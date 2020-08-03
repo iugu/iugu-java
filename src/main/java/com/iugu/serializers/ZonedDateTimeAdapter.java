@@ -6,7 +6,9 @@ import java.lang.reflect.Type;
 import java.time.ZonedDateTime;
 
 /**
- * Created by daniel on 10/09/2018.
+ *
+ * @author daniel
+ * @date 10/09/2018
  */
 public class ZonedDateTimeAdapter implements JsonSerializer<ZonedDateTime>, JsonDeserializer<ZonedDateTime> {
 
