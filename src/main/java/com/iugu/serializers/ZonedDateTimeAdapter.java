@@ -16,8 +16,9 @@ public class ZonedDateTimeAdapter implements JsonSerializer<ZonedDateTime>, Json
     @Override
     public ZonedDateTime deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         final int localDateLength = 10;
-        if (json.getAsString().length() == localDateLength) {
-            return LocalDate.parse(json.getAsString()).atStartOfDay(ZoneId.systemDefault());
+        final String getAsString = json.getAsString();
+        if (getAsString.length() == localDateLength) {
+            return LocalDate.parse(getAsString).atStartOfDay(ZoneId.systemDefault());
         } else {
             return ZonedDateTime.parse(json.getAsString());
         }
