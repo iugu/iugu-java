@@ -3,7 +3,8 @@ package com.iugu.responses;
 import com.google.gson.annotations.SerializedName;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 public class SubscriptionResponse {
@@ -19,13 +20,14 @@ public class SubscriptionResponse {
     private String currency;
 
     //TODO Features
-    private LocalDate expiresAt;
+
+    private ZonedDateTime expiresAt;
 
     private String customerName;
 
     private String customerEmail;
 
-    private LocalDate cycledAt;
+    private ZonedDateTime cycledAt;
 
     private Integer creditsMin;
 
@@ -99,12 +101,20 @@ public class SubscriptionResponse {
         this.currency = currency;
     }
 
-    public LocalDate getExpiresAt() {
+    public ZonedDateTime getExpiresAt() {
         return expiresAt;
     }
 
-    public void setExpiresAt(LocalDate expiresAt) {
+    public void setExpiresAt(ZonedDateTime expiresAt) {
         this.expiresAt = expiresAt;
+    }
+
+    public ZonedDateTime getCycledAt() {
+        return cycledAt;
+    }
+
+    public void setCycledAt(ZonedDateTime cycledAt) {
+        this.cycledAt = cycledAt;
     }
 
     public String getCustomerName() {
@@ -121,14 +131,6 @@ public class SubscriptionResponse {
 
     public void setCustomerEmail(String customerEmail) {
         this.customerEmail = customerEmail;
-    }
-
-    public LocalDate getCycledAt() {
-        return cycledAt;
-    }
-
-    public void setCycledAt(LocalDate cycledAt) {
-        this.cycledAt = cycledAt;
     }
 
     public Integer getCreditsMin() {
