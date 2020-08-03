@@ -3,10 +3,11 @@ package com.iugu.serializers;
 import com.google.gson.*;
 
 import java.lang.reflect.Type;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 /**
- *
  * @author daniel
  * @date 10/09/2018
  */
@@ -14,7 +15,12 @@ public class ZonedDateTimeAdapter implements JsonSerializer<ZonedDateTime>, Json
 
     @Override
     public ZonedDateTime deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-        return ZonedDateTime.parse(json.getAsString());
+        final int localDateLength = 10;
+        if (json.getAsString().length() == localDateLength) {
+            return LocalDate.parse(json.getAsString()).atStartOfDay(ZoneId.systemDefault());
+        } else {
+            return ZonedDateTime.parse(json.getAsString());
+        }
     }
 
     @Override
