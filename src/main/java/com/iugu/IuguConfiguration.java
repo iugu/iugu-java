@@ -3,6 +3,7 @@ package com.iugu;
 import com.iugu.serializers.GsonJsonProvider;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
+import org.jboss.resteasy.client.jaxrs.internal.ResteasyClientBuilderImpl;
 
 public class IuguConfiguration {
 
@@ -22,7 +23,7 @@ public class IuguConfiguration {
     }
 
     public ResteasyClient getNewClient() {
-        ResteasyClientBuilder builder = new ResteasyClientBuilder()
+        ResteasyClientBuilder builder = new ResteasyClientBuilderImpl()
                 .register(new GsonJsonProvider())
                 .register(new Authenticator(tokenId, ""));
         if (proxyHost != null && proxyHost.trim().length() > 0) {
@@ -32,7 +33,7 @@ public class IuguConfiguration {
     }
 
     public ResteasyClient getNewClientNotAuth() {
-        ResteasyClientBuilder builder = new ResteasyClientBuilder()
+        ResteasyClientBuilder builder = new ResteasyClientBuilderImpl()
                 .register(new GsonJsonProvider());
         if (proxyHost != null && proxyHost.trim().length() > 0) {
             builder.defaultProxy(proxyHost, proxyPort);
