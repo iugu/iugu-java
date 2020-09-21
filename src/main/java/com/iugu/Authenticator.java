@@ -1,13 +1,14 @@
 package com.iugu;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-
 import javax.ws.rs.client.ClientRequestContext;
 import javax.ws.rs.client.ClientRequestFilter;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.xml.bind.DatatypeConverter;
+import java.io.UnsupportedEncodingException;
 
+/**
+ * @author nsd_dfelgar
+ */
 public class Authenticator implements ClientRequestFilter {
 
     private final String user;
@@ -18,6 +19,7 @@ public class Authenticator implements ClientRequestFilter {
         this.password = password;
     }
 
+    @Override
     public void filter(ClientRequestContext requestContext) {
         MultivaluedMap<String, Object> headers = requestContext.getHeaders();
         final String basicAuthentication = getBasicAuthentication();
