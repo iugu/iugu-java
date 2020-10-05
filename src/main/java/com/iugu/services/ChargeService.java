@@ -14,7 +14,7 @@ import javax.ws.rs.core.Response;
  */
 public class ChargeService {
 
-    private IuguConfiguration iugu;
+    private final IuguConfiguration iugu;
     private final String CHARGE_URL = IuguConfiguration.url("/charge");
 
     public ChargeService(IuguConfiguration iuguConfiguration) {
@@ -22,18 +22,22 @@ public class ChargeService {
     }
 
     public ChargeResponse charge(Charge charge) throws IuguException {
-        Response response = this.iugu.getNewClient().target(CHARGE_URL).request().post(Entity.entity(charge, MediaType.APPLICATION_JSON));
+        Response response = this.iugu.getNewClient()
+                .target(CHARGE_URL)
+                .request()
+                .post(Entity.entity(charge, MediaType.APPLICATION_JSON));
 
         int ResponseStatus = response.getStatus();
         String ResponseText = null;
 
-        if (ResponseStatus == 200)
+        if (ResponseStatus == 200) {
             return response.readEntity(ChargeResponse.class);
+        }
 
         // Error Happened
-        if (response.hasEntity())
+        if (response.hasEntity()) {
             ResponseText = response.readEntity(String.class);
-
+        }
         response.close();
 
         throw new IuguException("Error creating invoice!", ResponseStatus, ResponseText);
