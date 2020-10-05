@@ -6,6 +6,9 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.xml.bind.DatatypeConverter;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * @author nsd_dfelgar
+ */
 public class Authenticator implements ClientRequestFilter {
 
     private final String user;
