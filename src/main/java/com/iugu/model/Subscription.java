@@ -71,12 +71,12 @@ public class Subscription {
 		this.expiresAt = expiresAt;
 	}
 
-	public String getOnlyOnChargeSucess() {
-		return onlyOnChargeSucess;
+	public String getOnlyOnChargeSuccess() {
+		return onlyOnChargeSuccess;
 	}
 
-	public void setOnlyOnChargeSucess(String onlyOnChargeSucess) {
-		this.onlyOnChargeSucess = onlyOnChargeSucess;
+	public void setOnlyOnChargeSuccess(String onlyOnChargeSuccess) {
+		this.onlyOnChargeSuccess = onlyOnChargeSuccess;
 	}
 
 	public PayableWith getPayableWith() {
