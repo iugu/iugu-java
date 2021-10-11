@@ -266,6 +266,8 @@ public class SubscriptionResponse {
                 ", inTrial=" + inTrial +
                 ", credits=" + credits +
                 ", creditsBased=" + creditsBased +
+                ", errors='" + errors + '\'' +
+                ", lr='" + lr + '\'' +
                 ", subitems=" + subitems +
                 ", logs=" + logs +
                 ", customVariables=" + customVariables +
